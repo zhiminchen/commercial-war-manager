@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <style>
+      body {
+        font-size: 13px;
+      }
+        img{
+          border: solid 1px #ccc ;
+          padding:3px;margin:5px ; width:143px; height:101px;
+        }
+
+    </style>
+
+  <script>
+    $(function () {
+      $("img").each(function (index) {
+        this.title = "第" + index + "幅风景图片 , alt 内容是 " + this.alt ;
+      })
+    })
+  </script>
+</head>
+<body>
+
+  <img src="pic/04.jpg" alt = "第 4副风景画">
+  <img src="pic/05.jpg" alt = "第 5副风景画">
+  <img src="pic/06.jpg" alt = "第 6副风景画">
+
+</body>
+</html>

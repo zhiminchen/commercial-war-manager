@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery2</title>
+
+    <script src="../js/jquery-3.5.1.min.js"></script>
+
+    <style>
+
+      body {font-size: 12px; text-align: center}
+      form {width: 241px}
+      textarea, select, button,input , span { display: none}
+      .btn {border:#666 1px  solid ; padding:2px ; width: 60px ;
+            /*filter: progid:DXImageTransform.Microsoft.gradient()*/
+
+      }
+
+      .txt{ border:#666 1px solid ; padding:3px}
+      .img{padding: 2px; border:solid 1px #ccc;  float : left}
+      .div {border: solid 1px #ccc ; background-color: #eee; padding: 5px}
+
+    </style>
+
+  <script>
+  <!--  $(function(){-->
+  <!--    var strAlt = $("img").attributes("src");-->
+  <!--    strAlt += "<br/><br/>" + $("img").attr("title");-->
+  <!--    $("#divAlt").html(strAlt)-->
+  <!--  })-->
+
+
+    $(function () {
+        var strHTML = $("#divShow").html();
+        var strText = $("#divShow").text();
+        $("#divHTML").html(strText)
+        $("#divText").text(strText)
+
+    })
+
+  </script>
+
+
+
+
+
+
+</head>
+<body>
+
+<!--  <img alt="" title="这是一副风景画" src="pic/img01.jpg">-->
+<!--  <div id="divAlt"></div>-->
+
+
+  <div id="divShow"><b><i>Write Less Do More</i></b></div>
+  <div id="divHTML"></div>
+  <div id="divText"></div>
+
+
+</body>
+</html>

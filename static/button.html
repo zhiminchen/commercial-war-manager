@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>button</title>
+</head>
+<body>
+  <script src="jquery-3.5.1.min.js"></script>
+  <style type="text/css">
+    .btn {
+      border:#666 1px solid;
+      padding: 2px; width: 50px;
+    }
+  </style>
+
+
+  <script>
+    $(function () {
+      $("#btnBind").bind("click" , function () {
+          $(this).attr("disabled" , "disabled");
+      })
+    })
+  </script>
+
+
+  <input id="btnBind" type="button" value="Button" class="btn"/>
+
+</body>
+</html>

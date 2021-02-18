@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>clone</title>
+  <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+
+  <style>
+    img {border:solid 1px #ccc; padding: 3px; margin:5px}
+  </style>
+
+  <script>
+    $(()=> {
+      $("img").click(function () {
+        $(this).clone(true).appendTo("span")
+      })
+    })
+  </script>
+
+</head>
+<body>
+  <span><img title="封面" src="pic/C%23.jpg"/></span>
+</body>
+</html>
