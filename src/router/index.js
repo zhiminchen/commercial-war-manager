@@ -13,9 +13,11 @@ import ImportTable from '../components/table/ImportTable'
 import AllServerMail from '../components/game/AllServerMail'
 import HotPatch from '../components/game/HotPatch'
 import AllServer from '../components/game/AllServer'
+import Permissions from '../components/power/Permissions'
+import Character from '../components/power/Character'
+import Customer from '../components/user/Customer'
 
 import ElementUI, {Message, MessageBox } from 'element-ui'
-// import MessageBox from 'element-ui/packages/message-box/src/main'
 
 Vue.use(Router)
 Vue.use(ElementUI)
@@ -45,7 +47,10 @@ const router = new Router({
         {path: '/importtable', component: ImportTable},
         {path: '/allservermail', component: AllServerMail},
         {path: '/hotfix', component: HotPatch},
-        {path: '/allserver', component: AllServer}
+        {path: '/allserver', component: AllServer},
+        {path: '/permissions', component: Permissions},
+        {path: '/character', component: Character},
+        {path: '/customer', component: Customer}
       ]
     }
   ]
