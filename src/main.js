@@ -91,7 +91,8 @@ axios.interceptors.response.use(  response => {
           forbidClick: true
         });
     }
-    return Promise.reject(error.response);
+    // return Promise.reject(error.response);
+    return Promise.resolve(error.response);
   }})
 
 
