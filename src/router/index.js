@@ -16,6 +16,11 @@ import AllServer from '../components/game/AllServer'
 import Permissions from '../components/power/Permissions'
 import Character from '../components/power/Character'
 import Customer from '../components/user/Customer'
+import DAU from '../components/datacount/DAU'
+import ADD from '../components/datacount/ADD'
+import PlayerParticipation from '../components/datacount/PlayerParticipation'
+import PlayerRange from '../components/datacount/PlayerRange'
+import InvestmentDetail from '../components/datacount/InvestmentDetail'
 
 import ElementUI, {Message, MessageBox } from 'element-ui'
 
@@ -50,7 +55,12 @@ const router = new Router({
         {path: '/allserver', component: AllServer},
         {path: '/permissions', component: Permissions},
         {path: '/character', component: Character},
-        {path: '/customer', component: Customer}
+        {path: '/customer', component: Customer},
+        {path: '/dau', component: DAU},
+        {path: '/add', component: ADD},
+        {path: '/participation', component: PlayerParticipation},
+        {path: '/range' , component: PlayerRange},
+        {path: '/investment', component: InvestmentDetail}
       ]
     }
   ]

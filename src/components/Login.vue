@@ -59,7 +59,7 @@ export default {
           return this.$message.error('登入失败')
         }
         this.$message.success('登入成功')
-        console.log(res)
+        // console.log(res)
         window.sessionStorage.setItem('token', res.data.password)
         window.sessionStorage.setItem('roleId' , res.data.roleId)
         window.sessionStorage.setItem('userName', res.data.userName)
