@@ -4,13 +4,14 @@
       <el-breadcrumb separator-class="el-icon-arrow-right">
         <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
         <el-breadcrumb-item>数据统计</el-breadcrumb-item>
-        <el-breadcrumb-item>注资详情</el-breadcrumb-item>
+        <el-breadcrumb-item>商战详情</el-breadcrumb-item>
       </el-breadcrumb>
 
+      <el-card>
 
         <el-card>
           <el-row>
-            <el-col :span="4">
+            <el-col :span="4" style="margin-right: 20px">
               <el-select v-model="selectGame" placeholder="请选择游戏服务器">
                 <el-option
                   v-for="item in gameConfigList"
@@ -35,10 +36,8 @@
             <el-col :span="8">
               <el-date-picker
                 v-model="dayRange"
-                type="daterange"
-                start-placeholder="开始日期"
-                end-placeholder="结束日期"
-                :default-time="['00:00:00', '23:59:59']"
+                type="date"
+                placeholder="选择日期"
                 value-format="yyyy-MM-dd"
                 :picker-options="pickerOptions"
                 @change="daySelect">
@@ -55,14 +54,18 @@
 
             <el-table-column prop="serverName" label="服务名称"  align="center"></el-table-column>
             <el-table-column prop="serverId" label="服务器id"  align="center"></el-table-column>
-            <el-table-column prop="completeInjectionTimes" label="完成注资次数"  align="center"></el-table-column>
-            <el-table-column prop="independentPublicTimes" label="独立上市次数"  align="center"></el-table-column>
-            <el-table-column prop="unitedPublicTimes" label="联合上市次数"  align="center"></el-table-column>
+            <el-table-column prop="passId" label="关卡id"  align="center"></el-table-column>
+            <el-table-column prop="aTimes" label="达到a评级次数"  align="center"></el-table-column>
+            <el-table-column prop="bTimes" label="达到b评级次数"  align="center"></el-table-column>
+            <el-table-column prop="cTimes" label="达到c评级次数"  align="center"></el-table-column>
+            <el-table-column prop="sTimes" label="达到s评级次数"  align="center"></el-table-column>
+            <el-table-column prop="ssTimes" label="达到ss评级次数"  align="center"></el-table-column>
             <el-table-column prop="day" label="日期"  align="center"></el-table-column>
           </el-table>
         </el-card>
 
 
+      </el-card>
 
     </div>
 </template>
@@ -115,6 +118,7 @@
     },
     methods: {
       daySelect() {
+        // console.log(this.dayRange)
       },
 
       // 查询游戏配置
@@ -131,11 +135,9 @@
 
       async queryData() {
 
-        // if(this.selectChannel !== '-1'){
-        //   if(this.selectGame === '-1'){
-        //     return this.$message.error('请选择具体的游戏！')
-        //   }
-        // }
+        if(this.selectGame == '-1'){
+            return this.$message.error('请选择具体的游戏！')
+        }
 
         if(!this.dayRange){
           return this.$message.error('请选择日期!')
@@ -143,12 +145,10 @@
 
         let param = {
           serverId : this.selectGame,
-          channelId : '-1',
-          fromDay : this.dayRange[0] ,
-          endDay : this.dayRange[1]
+          day : this.dayRange ,
         }
 
-        const {data : res} = await this.$http.post('/gm/products/detail/investment' , param)
+        const {data : res} = await this.$http.post('/gm/products/detail/commercial/war' , param)
         if(res.meta.status !== 200){
           return this.$message.error('获取数据失败!')
         }

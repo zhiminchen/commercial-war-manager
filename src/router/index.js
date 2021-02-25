@@ -21,6 +21,10 @@ import ADD from '../components/datacount/ADD'
 import PlayerParticipation from '../components/datacount/PlayerParticipation'
 import PlayerRange from '../components/datacount/PlayerRange'
 import InvestmentDetail from '../components/datacount/InvestmentDetail'
+import CommercialWarDetail from '../components/datacount/CommercialWarDetail'
+import MainLinePassDetail from '../components/datacount/MainLinePassDetail'
+import PlayerQuery from '../components/player/PlayerQuery'
+import OpMainLineTask from '../components/datacount/OpMainLineTask'
 
 import ElementUI, {Message, MessageBox } from 'element-ui'
 
@@ -60,7 +64,11 @@ const router = new Router({
         {path: '/add', component: ADD},
         {path: '/participation', component: PlayerParticipation},
         {path: '/range' , component: PlayerRange},
-        {path: '/investment', component: InvestmentDetail}
+        {path: '/investment', component: InvestmentDetail},
+        {path: '/commercialwar', component: CommercialWarDetail},
+        {path: '/mainlinepass', component: MainLinePassDetail},
+        {path: '/player/find', component: PlayerQuery},
+        {path: '/op/mainlinetask' , component: OpMainLineTask},
       ]
     }
   ]

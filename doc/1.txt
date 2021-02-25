@@ -1,3 +1,6 @@
 webpack.base.conf.js  ...(config.dev.useEslint ? [createLintingRule()] : []) 注释掉
 npm install element-ui
 
+
+https://blog.csdn.net/KaiSarH/article/details/111034317     vue.js 使用导出excel表
+

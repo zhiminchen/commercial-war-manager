@@ -7,6 +7,7 @@ import './assets/csss/global.css'
 import 'element-ui/lib/theme-chalk/index.css'
 import './assets/fonts/iconfont.css'
 import Store from './components/store/Store.vue'
+import JsonExcel from 'vue-json-excel'
 
 import md5 from "js-md5";
 import axios from 'axios'
@@ -16,6 +17,9 @@ import { Message } from 'element-ui'
 Vue.prototype.$md5 = md5;
 Vue.prototype.$story = Store
 Vue.prototype.$qs = qs
+Vue.prototype.$excel = JsonExcel
+
+Vue.component('downloadExcel', JsonExcel)
 
 axios.defaults.baseURL = 'http://localhost:8082'
 axios.defaults.withCredentials=true
@@ -74,7 +78,6 @@ axios.interceptors.response.use(  response => {
         });
         break;
       case 405 :
-        console.log("----------------------")
         Message({
           message: '权限访问错误！',
           duration: 2500,

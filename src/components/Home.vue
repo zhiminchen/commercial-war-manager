@@ -34,15 +34,15 @@
           <el-submenu :index="item.id+''" v-for="item in menulist" :key="item.id">
             <template slot="title">
               <!--                <i class="el-icon-location"></i>-->
-              <i :class="item.icon"></i>
+              <i :class="item.icon" ></i>
               <span>{{item.authName}}</span>
             </template>
 
             <el-menu-item :index="subItem.path" v-for="subItem in item.children" :key="subItem.id"
                           @click="saveNavState(subItem.path)">
               <template slot="title">
-                <i class="el-icon-menu"></i>
-                <!--                <i :class="subItem.icon"></i>-->
+<!--                <i class="el-icon-menu"></i>-->
+                                <i :class="subItem.icon"></i>
                 <span>{{subItem.authName}}</span>
               </template>
 
