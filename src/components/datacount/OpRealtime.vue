@@ -1,11 +1,11 @@
 <template>
     <div>
+      <!--  面包屑导航区域  -->
       <el-breadcrumb separator-class="el-icon-arrow-right">
         <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
         <el-breadcrumb-item>数据统计</el-breadcrumb-item>
-        <el-breadcrumb-item>运营主线任务</el-breadcrumb-item>
+        <el-breadcrumb-item>运营实时数据</el-breadcrumb-item>
       </el-breadcrumb>
-
 
       <el-card>
         <el-row>
@@ -34,6 +34,7 @@
             <el-button icon="el-icon-search" type="primary" plain @click="queryData">查询</el-button>
           </el-col>
 
+
           <el-col :span="4">
             <download-excel
               :fields="jsonFields"
@@ -48,38 +49,47 @@
 
           </el-col>
 
+
         </el-row>
 
         <el-table :data="dataList" border stripe>
 
-          <el-table-column prop="serverName" label="服务名称"  align="center"></el-table-column>
-          <el-table-column prop="serverId" label="服务器id"  align="center"></el-table-column>
-          <el-table-column prop="key" label="主线任务id"  align="center"></el-table-column>
-          <el-table-column prop="value" label="完成人数"  align="center"></el-table-column>
-          <el-table-column prop="percentage" label="完成率"  align="center"></el-table-column>
-          <el-table-column prop="time" label="最新统计时间"  align="center"></el-table-column>
+          <el-table-column prop="serverName" label="服务器名称"  align="center"></el-table-column>
+<!--          <el-table-column prop="serverId" label="服务器id"  align="center"></el-table-column>-->
+
+          <el-table-column prop="allPlayerNum" label="游戏总人数"  align="center"></el-table-column>
+          <el-table-column prop="effectivePlayerNum" label="有效用户数"  align="center"></el-table-column>
+          <el-table-column prop="currDayPlayerNum" label="当天玩家数"  align="center"></el-table-column>
+          <el-table-column prop="onlinePlayerNum" label="在线人数"  align="center"></el-table-column>
+
+
+          <el-table-column prop="playerTotalTimeMinute" label="总游戏时长(单位分钟)"  align="center"></el-table-column>
+          <el-table-column prop="averagePlayerTimeMinute" label="平均游戏时长(单位分钟)"  align="center"></el-table-column>
+          <el-table-column prop="time" label="具体时间"  align="center"></el-table-column>
+
         </el-table>
       </el-card>
+
 
     </div>
 </template>
 
 <script>
   export default {
-    name: 'OpMainLineTask',
-
+    name: 'OpRealtime',
     data() {
       return {
 
-        exportName: '主线任务完成分布',
+        exportName: '运营实时数据',
         jsonFields: {
           "服务器名称": "serverName",    //常规字段
-          "服务器id": "serverId", //支持嵌套属性
-          "主线任务id":"key",
-          "人数":"value",
-          "完成率": "percentage",
-          "时间":"time",
-          "日期":"day",
+          "游戏总人数": "allPlayerNum", //支持嵌套属性
+          "有效用户数":"effectivePlayerNum",
+          "当天玩家数":"currDayPlayerNum",
+          "在线人数": "onlinePlayerNum",
+          "总游戏时长(单位分钟)":"playerTotalTimeMinute",
+          "平均游戏时长(单位分钟)":"averagePlayerTimeMinute",
+          "具体时间":"time"
         },
 
 
@@ -88,8 +98,6 @@
         selectGame: '-1',
         // 数据集合
         dataList : [],
-
-
 
       }
     },
@@ -129,15 +137,13 @@
           day : this.dayRange ,
         }
 
-        const {data : res} = await this.$http.post('/gm/op/mainline/task' , param)
+        const {data : res} = await this.$http.post('/gm/op/realtime' , param)
         if(res.meta.status !== 200){
           return this.$message.error('获取数据失败!')
         }
 
         this.dataList = res.data ;
-        if(this.dataList.length > 0 ){
-          this.dataList.splice(0 , 1)
-        }
+
       }
     }
   }

@@ -3,7 +3,7 @@
       <el-breadcrumb separator-class="el-icon-arrow-right">
         <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
         <el-breadcrumb-item>数据统计</el-breadcrumb-item>
-        <el-breadcrumb-item>运营主线任务</el-breadcrumb-item>
+        <el-breadcrumb-item>运营新手引导</el-breadcrumb-item>
       </el-breadcrumb>
 
 
@@ -54,9 +54,9 @@
 
           <el-table-column prop="serverName" label="服务名称"  align="center"></el-table-column>
           <el-table-column prop="serverId" label="服务器id"  align="center"></el-table-column>
-          <el-table-column prop="key" label="主线任务id"  align="center"></el-table-column>
+          <el-table-column prop="key" label="新手引导步骤"  align="center"></el-table-column>
           <el-table-column prop="value" label="完成人数"  align="center"></el-table-column>
-          <el-table-column prop="percentage" label="完成率"  align="center"></el-table-column>
+<!--          <el-table-column prop="percentage" label="完成率"  align="center"></el-table-column>-->
           <el-table-column prop="time" label="最新统计时间"  align="center"></el-table-column>
         </el-table>
       </el-card>
@@ -66,18 +66,18 @@
 
 <script>
   export default {
-    name: 'OpMainLineTask',
+    name: 'OpNoviceGuide',
 
     data() {
       return {
 
-        exportName: '主线任务完成分布',
+        exportName: '玩家新手引导完成分布',
         jsonFields: {
           "服务器名称": "serverName",    //常规字段
           "服务器id": "serverId", //支持嵌套属性
-          "主线任务id":"key",
+          "新手引导步骤":"key",
           "人数":"value",
-          "完成率": "percentage",
+          // "完成率": "percentage",
           "时间":"time",
           "日期":"day",
         },
@@ -129,7 +129,7 @@
           day : this.dayRange ,
         }
 
-        const {data : res} = await this.$http.post('/gm/op/mainline/task' , param)
+        const {data : res} = await this.$http.post('/gm/op/novice/guide' , param)
         if(res.meta.status !== 200){
           return this.$message.error('获取数据失败!')
         }

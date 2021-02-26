@@ -25,7 +25,10 @@ import CommercialWarDetail from '../components/datacount/CommercialWarDetail'
 import MainLinePassDetail from '../components/datacount/MainLinePassDetail'
 import PlayerQuery from '../components/player/PlayerQuery'
 import OpMainLineTask from '../components/datacount/OpMainLineTask'
-
+import OpPlayerLevel from '../components/datacount/OpPlayerLevel'
+import OpNoviceGuide from '../components/datacount/OpNoviceGuide'
+import OpRealtime from '../components/datacount/OpRealtime'
+import Retained from '../components/datacount/Retained'
 import ElementUI, {Message, MessageBox } from 'element-ui'
 
 Vue.use(Router)
@@ -69,6 +72,10 @@ const router = new Router({
         {path: '/mainlinepass', component: MainLinePassDetail},
         {path: '/player/find', component: PlayerQuery},
         {path: '/op/mainlinetask' , component: OpMainLineTask},
+        {path: '/op/player/level', component: OpPlayerLevel},
+        {path: '/op/novice/guide', component: OpNoviceGuide},
+        {path: '/op/realtime', component: OpRealtime},
+        {path: '/retained', component: Retained}
       ]
     }
   ]

@@ -86,6 +86,15 @@ axios.interceptors.response.use(  response => {
         });
         router.push("/login")
         break;
+      case 406 :
+        Message({
+          message: '多个账号同事登入！',
+          duration: 2500,
+          forbidClick: true,
+          type: 'error'
+        });
+        router.push("/login")
+        break;
       // 其他错误，直接抛出错误提示
       default:
         Message({
