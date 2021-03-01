@@ -163,6 +163,9 @@
         }
 
         this.dataList = res.data ;
+        if(this.dataList.length == 0){
+          this.$message.warning("没有查询出数据！")
+        }
 
       }
     }

@@ -154,7 +154,10 @@
         }
 
         this.dataList = res.data ;
-        console.log(this.dataList)
+        // console.log(this.dataList)
+        if(this.dataList.length == 0){
+          this.$message.warning("没有查询出数据！")
+        }
 
       }
     }

@@ -159,6 +159,17 @@
           return this.$message.error('至少要选择一个游戏服务器!')
         }
 
+        const confirmResult = await this.$confirm.confirm('此操作将会把所有表的数据重新加载', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).catch(err => err);
+
+        if(confirmResult !== 'confirm'){
+          return this.$message.info('取消了加载所有配置表的数据！');
+        }
+
+
         // console.log("updateAllConfigTable")
         const {data: res} = await this.$http.post('/gm/game/tables/config', JSON.stringify({
             servers: this.checkedServers.join(","),
@@ -243,6 +254,18 @@
         if (this.checkedServers.length === 0) {
           return this.$message.error('至少要选择一个游戏服务器!')
         }
+
+        const confirmResult = await this.$confirm.confirm('此操作将会把选中表的数据重新加载', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).catch(err => err);
+
+        if(confirmResult !== 'confirm'){
+          return this.$message.info('取消了加载选中配置表的数据！');
+        }
+
+
 
         // console.log("updateAllConfigTable")
         let param = {

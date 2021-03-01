@@ -138,6 +138,9 @@
         if(this.dataList.length > 0 ){
           this.dataList.splice(0 , 1)
         }
+        if(this.dataList.length == 0){
+          this.$message.warning("没有查询出数据！")
+        }
       }
     }
   }
