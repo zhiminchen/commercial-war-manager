@@ -181,10 +181,11 @@
         // this.$message.success("一键加载所有数据成功！")
 
         this.$message({
+          dangerouslyUseHTMLString: true,
           showClose: true ,
           duration: 10 * 1000 ,
           type: 'success',
-          message: "一下服务器一键加载配置表成功!  " +res.data
+          message: res.data
         })
       },
 
@@ -235,10 +236,11 @@
         }
 
         this.$message({
+          dangerouslyUseHTMLString: true,
           showClose: true ,
           duration: 10 * 1000 ,
           type: 'success',
-          message: "以下组件数据重新加载成功 ! " +res.data
+          message: res.data
         })
 
 
@@ -279,10 +281,11 @@
         }
 
         this.$message({
+          dangerouslyUseHTMLString: true,
           showClose: true ,
           duration: 10 * 1000 ,
           type: 'success',
-          message: "以下表更新成功 ! " +res.data
+          message: res.data
         })
 
       },
@@ -312,10 +315,11 @@
         }
 
         this.$message({
+          dangerouslyUseHTMLString: true,
           showClose: true ,
           duration: 10 * 1000 ,
           type: 'success',
-          message: "以下服务器踢下玩家成功 " +res.data
+          message: res.data
         })
 
       }

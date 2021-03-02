@@ -144,10 +144,11 @@
         }
 
         this.$message({
+          dangerouslyUseHTMLString: true,
           showClose: true ,
           duration: 10 * 1000 ,
           type: 'success',
-          message: "这些服务器发送全服邮件成功 ! " +res.data
+          message:  res.data
         })
 
         // return this.$message.success("这些服务器发送全服邮件成功 ! " +res.data)

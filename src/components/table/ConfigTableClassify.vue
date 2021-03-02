@@ -160,10 +160,11 @@
         if (res.meta.status != 200) {
           return this.$message.error('导入数据失败!')
         }
-        let desc = res.data + "\t导入成功"
+        let desc = res.data
         // this.$message.success(desc)
 
         this.$message({
+          dangerouslyUseHTMLString: true,
           showClose: true ,
           duration: 10 * 1000 ,
           type: 'success',

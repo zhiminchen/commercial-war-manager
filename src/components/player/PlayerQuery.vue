@@ -44,7 +44,7 @@
         </el-col>
 
         <el-col :span="4">
-          <el-button size="medium" type="info">踢人</el-button>
+          <el-button size="medium" type="info" @click="kickPlayer">踢人</el-button>
         </el-col>
 
 
@@ -483,6 +483,34 @@
 
         this.awardList.push(one);
       },
+
+      // 踢掉玩家
+      async kickPlayer() {
+        if (!this.multipleSelection) {
+          return this.$message.error('还没有选择玩家信息！')
+        }
+
+        if(this.multipleSelection.online === 0  || this.multipleSelection.online === '0'){
+          return this.$message.error('玩家下线状态不能踢人！')
+        }
+
+
+        let param = {
+          playerId: this.multipleSelection.player_id,
+          serverId: this.multipleSelection.server_id,
+          name: this.multipleSelection.name,
+          beginTime: '',
+          closeTime: '' ,
+        }
+
+        const {data: res} = await this.$http.post('/gm/player/kick', param)
+        if (res.meta.status !== 200) {
+          return this.$message.error('踢人请求失败！')
+        }
+
+        this.$message.success('踢人成功！')
+
+      }
 
     }
   }
