@@ -182,6 +182,12 @@
                 <el-table-column prop="id" label="资源id" align="center"></el-table-column>
                 <el-table-column prop="name" label="资源名称" align="center"></el-table-column>
                 <el-table-column prop="num" label="资源数量" align="center"></el-table-column>
+                <el-table-column  label="操作" align="center">
+                  <template slot-scope="scope">
+                    <el-button type="danger" icon="el-icon-delete" size="mini" @click="delItem(scope.row)">编辑</el-button>
+                  </template>
+                </el-table-column>
+
             </el-table>
           </el-row>
 
@@ -451,16 +457,20 @@
           serverId: this.multipleSelection.server_id,
           mailTitle : this.awardForm.mailTitle,
           mailContent: this.awardForm.mailContent,
-          itemList: strList.join(",")
+          itemList: strList.join("|")
         }
 
-        // const {data: res} = await this.$http.post('/gm/user/delete', param)
-        //
-        // if (res.meta.status !== 200) {
-        //   return this.$message.error('删除用户失败！')
-        // }
-        //
-        // this.$message.success('删除用户成功!')
+        // console.log(param)
+
+        const {data: res} = await this.$http.post('/gm/player/mail', param)
+
+        if (res.meta.status !== 200) {
+          return this.$message.error('发送用户邮件失败!')
+        }
+
+        this.$message.success('发送用户邮件成功!')
+        this.awardDialogVisible = false
+        this.awardDialogClosed()
 
       },
 
@@ -509,6 +519,27 @@
         }
 
         this.$message.success('踢人成功！')
+
+      },
+
+      // 删除斗剧
+      delItem(item){
+        if(this.awardList.length <= 0){
+          return this.$message.error("没有道具无法删除")
+        }
+
+        let index = -1 ;
+        for(let i = 0 ;i<this.awardList.length; i++){
+          index ++ ;
+          let x = this.awardList[i] ;
+          if( x === item){
+            break;
+          }
+        }
+
+        if(index >= 0 ){
+          this.awardList.splice(index , 1) ;
+        }
 
       }
 

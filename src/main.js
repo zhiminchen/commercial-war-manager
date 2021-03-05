@@ -23,7 +23,8 @@ Vue.component('downloadExcel', JsonExcel)
 
 axios.defaults.baseURL = 'http://localhost:8082'
 axios.defaults.withCredentials=true
-// axios.defaults.baseURL = 'http://106.52.17.243:8082'
+// axios.defaults.baseURL = 'http://106.52.17.243:8082'  内网
+// axios.defaults.baseURL = 'http://159.75.102.218:8082'  外网
 axios.defaults.headers.post['Content-Type'] = 'application/json'
 axios.interceptors.request.use(config => {
   config.headers.Authorization = window.sessionStorage.getItem('token')
@@ -88,7 +89,7 @@ axios.interceptors.response.use(  response => {
         break;
       case 406 :
         Message({
-          message: '多个账号同事登入！',
+          message: '多个账号同时登入！',
           duration: 2500,
           forbidClick: true,
           type: 'error'
