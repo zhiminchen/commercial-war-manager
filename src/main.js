@@ -8,23 +8,29 @@ import 'element-ui/lib/theme-chalk/index.css'
 import './assets/fonts/iconfont.css'
 import Store from './components/store/Store.vue'
 import JsonExcel from 'vue-json-excel'
+// 引入echarts
+import * as echarts from 'echarts'
 
 import md5 from "js-md5";
 import axios from 'axios'
 import qs from 'qs'
 import { Message } from 'element-ui'
 
+
+
+
 Vue.prototype.$md5 = md5;
 Vue.prototype.$story = Store
 Vue.prototype.$qs = qs
 Vue.prototype.$excel = JsonExcel
+Vue.prototype.$echarts = echarts
 
 Vue.component('downloadExcel', JsonExcel)
 
 axios.defaults.baseURL = 'http://localhost:8082'
 axios.defaults.withCredentials=true
-// axios.defaults.baseURL = 'http://106.52.17.243:8082'  内网
-// axios.defaults.baseURL = 'http://159.75.102.218:8082'  外网
+// axios.defaults.baseURL = 'http://106.52.17.243:8082'   //内网
+// axios.defaults.baseURL = 'http://159.75.102.218:8082'  //外网
 axios.defaults.headers.post['Content-Type'] = 'application/json'
 axios.interceptors.request.use(config => {
   config.headers.Authorization = window.sessionStorage.getItem('token')

@@ -94,6 +94,19 @@
       </div>
 
 
+      <div class="row-component">
+        <el-row style="margin-bottom: 20px">
+          <el-tag>重新统计数据区域 : </el-tag>
+        </el-row>
+
+        <el-row>
+          <el-button type="primary" icon="el-icon-view" plain @click="countData">重新统计日常数据</el-button>
+        </el-row>
+
+
+      </div>
+
+
     </el-card>
 
   </div>
@@ -212,6 +225,34 @@
         // console.log(this.configTableList)
       },
 
+      // 统计数据
+      async countData(){
+        const confirmResult = await this.$confirm.confirm('此操作将会重新统计最近7天的数据', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).catch(err => err);
+
+        if(confirmResult !== 'confirm'){
+          return this.$message.info('取消了重新统计数据的操作！');
+        }
+
+        const {data: res} = await this.$http.get('/gm/game/count/data')
+        if( res.meta.status != 200){
+          return this.$message.error("统计数据失败！")
+        }
+
+        this.$message({
+          dangerouslyUseHTMLString: true,
+          showClose: true ,
+          duration: 10 * 1000 ,
+          type: 'success',
+          message: res.data
+        })
+
+
+      },
+
 
       // 重新加载组件数据
       async reloadComponentData(){
@@ -228,7 +269,7 @@
           servers : this.checkedServers.join(","),
           tables : this.selectComponentList.join(","),
         }
-        console.log(param)
+        // console.log(param)
 
         const {data: res} = await this.$http.post('/gm/game/reload/component', JSON.stringify(param))
         if( res.meta.status != 200){

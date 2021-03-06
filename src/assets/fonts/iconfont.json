@@ -6,6 +6,20 @@
   "description": "图标库",
   "glyphs": [
     {
+      "icon_id": "14947378",
+      "name": "物资领用",
+      "font_class": "ziyuan217",
+      "unicode": "e72b",
+      "unicode_decimal": 59179
+    },
+    {
+      "icon_id": "19185748",
+      "name": "物资",
+      "font_class": "wuzi",
+      "unicode": "e710",
+      "unicode_decimal": 59152
+    },
+    {
       "icon_id": "4323880",
       "name": "累计用户量",
       "font_class": "leijiyonghuliang",

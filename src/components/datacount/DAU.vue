@@ -50,6 +50,16 @@
 
       </el-row>
 
+      <el-row style="margin-top: 25px">
+<!--        <div class="r-echarts-line">-->
+<!--        <div id="myChart" ref="myChart" style="width: 100%;height:400px;"  ></div>-->
+        <div id="myChart" ref="myChart" v-bind:style="styleObject"  ></div>
+<!--        <div id="myChart" ref="myChart" v-bind:style="'width: 100%;height:400px;"  ></div>-->
+      </el-row>
+
+
+
+
       <el-table :data="dataList" border stripe>
         <el-table-column v-if="selectGame !== '-1' " prop="serverId" label="服务器" width="180" align="center"></el-table-column>
         <el-table-column v-if="selectChannel !== '-1' " prop="channelId" label="渠道"  align="center"></el-table-column>
@@ -61,6 +71,7 @@
 </template>
 
 <script>
+  import macarons from 'echarts/theme/macarons'
   export default {
     name: 'DAU',
     data() {
@@ -72,6 +83,16 @@
         selectChannel: '-1',
         // 数据集合
         dataList : [],
+        // dau 相关数据
+        dauDayList : [] ,
+        dauValueList : [],
+
+
+        styleObject: {
+          width: '100%',
+          height: '400px'
+        },
+
         pickerOptions: {
           shortcuts: [{
             text: '最近一周',
@@ -158,12 +179,79 @@
         }
 
         this.dataList = res.data ;
+        this.dauDayList = []
+        this.dauValueList = []
+
+        if(this.dataList.length > 0){
+          let length = this.dataList.length
+          for(let i = 0 ;i < length ;i++){
+            let one = this.dataList[i]
+            this.dauDayList.push(one.day)
+            this.dauValueList.push(one.count)
+          }
+          this.drawLineChart()
+
+        }else{
+        }
+
+
         if(this.dataList.length == 0){
           this.$message.warning("没有查询出数据！")
         }
-        // console.log(this.dataList)
 
-      }
+      },
+
+
+      // https://segmentfault.com/a/1190000022096665
+
+      // 绘制线条图
+      drawLineChart() {
+        let chartLine = this.$echarts.init(document.getElementById('myChart'));// 基于准备好的dom，初始化echarts实例
+        // let chartLine = this.$echarts.init(this.refs.myChart);// 基于准备好的dom，初始化echarts实例
+
+        let option = {
+          tooltip : {
+            trigger: 'axis'
+          },
+          legend: {
+            data:['DAU']
+          },
+          calculable : true,
+          xAxis : [
+            {
+              type : 'category',
+              boundaryGap : false,
+              axisTick: {
+                show: false
+              },
+              data : this.dauDayList
+            }
+          ],
+          yAxis : [
+            {
+              type : 'value',
+              axisTick: {
+                show: false
+              },
+              name: '(人数)'
+            }
+          ],
+          series : [
+            {
+              name:'DAU',
+              type:'line',
+              smooth: false,
+              stack: '总量',
+              data: this.dauValueList
+            }
+
+          ]
+        };
+        // 使用刚指定的配置项和数据显示图表
+        chartLine.setOption(option);
+      } ,
+
+
     }
   }
 </script>
