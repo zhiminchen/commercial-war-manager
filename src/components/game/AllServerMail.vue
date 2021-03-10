@@ -71,6 +71,7 @@
       title="奖励对话话框"
       :visible.sync="awardDialogVisible"
       width="65%" @close="awardDialogClosed"
+      :close-on-click-modal="false"
     >
       <el-form ref="awardFormRef" :model="awardForm" label-width="150px">
         <div class="block">
@@ -198,7 +199,7 @@
         }
 
         this.serverOptions = res.data.map(e => e.value)
-        console.log(this.serverOptions)
+        // console.log(this.serverOptions)
 
       },
 

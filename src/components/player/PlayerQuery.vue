@@ -49,7 +49,7 @@
 
 
         <el-col :span="4">
-          <el-button size="medium" type="primary">详情</el-button>
+          <el-button size="medium" type="primary" @click="queryPlayerInfo">详情</el-button>
         </el-col>
 
         <el-col :span="4">
@@ -67,6 +67,7 @@
       title="封号对话框"
       :visible.sync="sealDialogVisible"
       width="50%" @close="sealDialogClosed"
+      :close-on-click-modal="false"
     >
       <el-form ref="sealFormRef" :model="sealForm" label-width="150px">
 
@@ -97,6 +98,7 @@
       title="禁言对话框"
       :visible.sync="banTalkDialogVisible"
       width="50%" @close="banTaskDialogClosed"
+      :close-on-click-modal="false"
     >
       <el-form ref="banTalkFormRef" :model="banTalkForm" label-width="150px">
 
@@ -130,6 +132,7 @@
       title="奖励对话话框"
       :visible.sync="awardDialogVisible"
       width="65%" @close="awardDialogClosed"
+      :close-on-click-modal="false"
     >
       <el-form ref="awardFormRef" :model="awardForm" label-width="150px">
         <div class="block">
@@ -202,6 +205,35 @@
 
 
 
+    <!-- 玩家详情对话框     -->
+    <el-dialog
+      title="玩家详情对话框"
+      :visible.sync="playerInfoDialogVisible"
+      width="65%" @close="playerInfoDialogVisible=false"
+      :close-on-click-modal="false"
+    >
+      <el-form ref="playerInfoFormRef"  label-width="150px">
+        <div class="block">
+          <el-row>
+            <el-table :data="playerInfoList" style="width: 100%" stripe border>
+              <el-table-column prop="key" label="字段名" align="center"></el-table-column>
+              <el-table-column prop="value" label="字段值" align="center"></el-table-column>
+            </el-table>
+          </el-row>
+
+        </div>
+      </el-form>
+
+      <span slot="footer" class="dialog-footer">
+            <el-button @click="playerInfoDialogVisible=false">取 消</el-button>
+            <el-button type="primary" size="medium" @click="playerInfoDialogVisible=false">确 定</el-button>
+          </span>
+    </el-dialog>
+
+
+
+
+
   </div>
 </template>
 
@@ -217,6 +249,7 @@
         sealDialogVisible: false,
         banTalkDialogVisible: false,
         awardDialogVisible: false,
+        playerInfoDialogVisible: false,
         sealForm: {
           dateTimeSelect: ''
         },
@@ -237,6 +270,8 @@
         // 奖励列表
         awardList : [],
         awardNum : 0 ,
+        // 玩家信息列表
+        playerInfoList : [],
 
         pickerOptions: {
           shortcuts: [{
@@ -275,7 +310,29 @@
 
     methods: {
 
+      // 查询玩家信息
+      async queryPlayerInfo() {
 
+        if (!this.multipleSelection) {
+          return this.$message.error('还没有选择玩家信息！')
+        }
+
+        let param = {
+          playerId: this.multipleSelection.player_id,
+          serverId: this.multipleSelection.server_id,
+        }
+        // console.log(param)
+        const {data: res} = await this.$http.post('/gm/player/info', param);
+        if (res.meta.status !== 200) {
+          return this.$message.error('玩家请求失败！')
+        }
+        this.playerInfoList = res.data
+        // console.log(this.playerInfoList)
+        this.$message.success('玩家请求成功！')
+
+        this.playerInfoDialogVisible=true
+
+      },
 
       // 查询资源
       async queryResource () {
