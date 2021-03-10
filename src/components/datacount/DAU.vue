@@ -63,8 +63,12 @@
       <el-table :data="dataList" border stripe>
         <el-table-column v-if="selectGame !== '-1' " prop="serverId" label="服务器" width="180" align="center"></el-table-column>
         <el-table-column v-if="selectChannel !== '-1' " prop="channelId" label="渠道"  align="center"></el-table-column>
-        <el-table-column prop="count" label="日活跃用户数"  align="center"></el-table-column>
         <el-table-column prop="day" label="日期"  align="center"></el-table-column>
+        <el-table-column prop="add" label="新增"  align="center"></el-table-column>
+        <el-table-column prop="effectiveUser" label="有效用户"  align="center"></el-table-column>
+        <el-table-column prop="dau" label="活跃"  align="center"></el-table-column>
+        <el-table-column prop="averagePlayTime" label="平均时长（分）"  align="center"></el-table-column>
+
       </el-table>
     </el-card>
   </div>
@@ -86,6 +90,9 @@
         // dau 相关数据
         dauDayList : [] ,
         dauValueList : [],
+        addValueList :[],
+        effectPlayerList : [],
+        avgTimeList : [] ,
 
 
         styleObject: {
@@ -181,13 +188,20 @@
         this.dataList = res.data ;
         this.dauDayList = []
         this.dauValueList = []
+        this.addValueList = []
+        this.effectPlayerList = []
+        this.avgTimeList = []
 
         if(this.dataList.length > 0){
           let length = this.dataList.length
           for(let i = 0 ;i < length ;i++){
             let one = this.dataList[i]
             this.dauDayList.push(one.day)
-            this.dauValueList.push(one.count)
+            this.dauValueList.push(one.dau)
+            this.addValueList.push(one.add)
+            this.effectPlayerList.push(one.effectiveUser)
+            this.avgTimeList.push(one.averagePlayTime)
+
           }
           this.drawLineChart()
 
@@ -214,7 +228,7 @@
             trigger: 'axis'
           },
           legend: {
-            data:['DAU']
+            data:['DAU', 'ADD' , '有效用户', '平均时长']
           },
           calculable : true,
           xAxis : [
@@ -243,7 +257,28 @@
               smooth: false,
               stack: '总量',
               data: this.dauValueList
-            }
+            },
+            {
+              name:'ADD',
+              type:'line',
+              smooth: false,
+              stack: '总量',
+              data: this.addValueList
+            },
+            {
+              name:'有效用户',
+              type:'line',
+              smooth: false,
+              stack: '总量',
+              data: this.effectPlayerList
+            },
+            {
+              name:'平均时长',
+              type:'line',
+              smooth: false,
+              stack: '总量',
+              data: this.avgTimeList
+            },
 
           ]
         };
