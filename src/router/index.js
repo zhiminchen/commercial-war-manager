@@ -32,6 +32,7 @@ import Retained from '../components/datacount/Retained'
 import ElementUI, {Message, MessageBox } from 'element-ui'
 import LoginServer from '../components/game/LoginList'
 import Resource from '../components/datacount/Resource'
+import LowPerformance from '../components/game/LowPerformance'
 
 Vue.use(Router)
 Vue.use(ElementUI)
@@ -79,7 +80,8 @@ const router = new Router({
         {path: '/op/realtime', component: OpRealtime},
         {path: '/retained', component: Retained},
         {path: '/login/list' , component: LoginServer},
-        {path: '/resource' , component: Resource}
+        {path: '/resource' , component: Resource},
+        {path: '/low/performance' , component: LowPerformance}
       ]
     }
   ]

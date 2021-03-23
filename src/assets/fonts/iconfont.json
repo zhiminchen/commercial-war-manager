@@ -6,6 +6,34 @@
   "description": "图标库",
   "glyphs": [
     {
+      "icon_id": "1128805",
+      "name": "性能",
+      "font_class": "xingneng",
+      "unicode": "e7bf",
+      "unicode_decimal": 59327
+    },
+    {
+      "icon_id": "6430496",
+      "name": "性能",
+      "font_class": "xingneng1",
+      "unicode": "e684",
+      "unicode_decimal": 59012
+    },
+    {
+      "icon_id": "9162560",
+      "name": "性能",
+      "font_class": "xingneng2",
+      "unicode": "e62e",
+      "unicode_decimal": 58926
+    },
+    {
+      "icon_id": "10600979",
+      "name": "性能",
+      "font_class": "xingneng3",
+      "unicode": "e645",
+      "unicode_decimal": 58949
+    },
+    {
       "icon_id": "14947378",
       "name": "物资领用",
       "font_class": "ziyuan217",
