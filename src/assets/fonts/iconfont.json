@@ -6,6 +6,27 @@
   "description": "图标库",
   "glyphs": [
     {
+      "icon_id": "11836065",
+      "name": "启动",
+      "font_class": "qidong",
+      "unicode": "e631",
+      "unicode_decimal": 58929
+    },
+    {
+      "icon_id": "14701690",
+      "name": "启动",
+      "font_class": "qidong1",
+      "unicode": "e698",
+      "unicode_decimal": 59032
+    },
+    {
+      "icon_id": "15989805",
+      "name": "启动",
+      "font_class": "qidong2",
+      "unicode": "e633",
+      "unicode_decimal": 58931
+    },
+    {
       "icon_id": "1128805",
       "name": "性能",
       "font_class": "xingneng",

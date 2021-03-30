@@ -33,6 +33,7 @@ import ElementUI, {Message, MessageBox } from 'element-ui'
 import LoginServer from '../components/game/LoginList'
 import Resource from '../components/datacount/Resource'
 import LowPerformance from '../components/game/LowPerformance'
+import ServerStarter from '../components/game/ServerStarter'
 
 Vue.use(Router)
 Vue.use(ElementUI)
@@ -81,7 +82,8 @@ const router = new Router({
         {path: '/retained', component: Retained},
         {path: '/login/list' , component: LoginServer},
         {path: '/resource' , component: Resource},
-        {path: '/low/performance' , component: LowPerformance}
+        {path: '/low/performance' , component: LowPerformance},
+        {path: '/game/starter', component: ServerStarter}
       ]
     }
   ]
