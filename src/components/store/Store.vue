@@ -9,12 +9,16 @@
   let tableTitle = []
   // 表的行数据
   let tableRowList = []
+  // 查询玩家的id
+  let queryPlayerId = ''
+
   export default {
     // name: 'Store.vue',
     configDBName,
     configTableName,
     tableTitle,
-    tableRowList
+    tableRowList,
+    queryPlayerId
 
   }
 </script>

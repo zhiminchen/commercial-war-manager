@@ -34,6 +34,7 @@ import LoginServer from '../components/game/LoginList'
 import Resource from '../components/datacount/Resource'
 import LowPerformance from '../components/game/LowPerformance'
 import ServerStarter from '../components/game/ServerStarter'
+import PlayerData from '../components/player/PlayerData'
 
 Vue.use(Router)
 Vue.use(ElementUI)
@@ -83,7 +84,8 @@ const router = new Router({
         {path: '/login/list' , component: LoginServer},
         {path: '/resource' , component: Resource},
         {path: '/low/performance' , component: LowPerformance},
-        {path: '/game/starter', component: ServerStarter}
+        {path: '/game/starter', component: ServerStarter},
+        {path: '/player/data', component: PlayerData}
       ]
     }
   ]

@@ -6,6 +6,20 @@
   "description": "图标库",
   "glyphs": [
     {
+      "icon_id": "10666896",
+      "name": "运维",
+      "font_class": "yunwei",
+      "unicode": "e639",
+      "unicode_decimal": 58937
+    },
+    {
+      "icon_id": "18430333",
+      "name": "运维",
+      "font_class": "zu850",
+      "unicode": "e634",
+      "unicode_decimal": 58932
+    },
+    {
       "icon_id": "11836065",
       "name": "启动",
       "font_class": "qidong",

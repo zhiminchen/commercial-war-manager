@@ -322,13 +322,16 @@
           serverId: this.multipleSelection.server_id,
         }
         // console.log(param)
-        const {data: res} = await this.$http.post('/gm/player/info', param);
-        if (res.meta.status !== 200) {
-          return this.$message.error('玩家请求失败！')
-        }
-        this.playerInfoList = res.data
-        // console.log(this.playerInfoList)
-        this.$message.success('玩家请求成功！')
+        this.$story.queryPlayerId = this.multipleSelection.player_id
+        this.$router.push('/player/data')
+
+        // const {data: res} = await this.$http.post('/gm/player/info', param);
+        // if (res.meta.status !== 200) {
+        //   return this.$message.error('玩家请求失败！')
+        // }
+        // this.playerInfoList = res.data
+        // // console.log(this.playerInfoList)
+        // this.$message.success('玩家请求成功！')
 
         this.playerInfoDialogVisible=true
 
