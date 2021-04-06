@@ -312,7 +312,7 @@
         this.mailResourceList.push(one);
       },
 
-      // 删除斗剧
+      // 删除道具
       delItem(item){
         if(this.mailResourceList.length <= 0){
           return this.$message.error("没有道具无法删除")

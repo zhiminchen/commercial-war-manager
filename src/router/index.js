@@ -35,6 +35,7 @@ import Resource from '../components/datacount/Resource'
 import LowPerformance from '../components/game/LowPerformance'
 import ServerStarter from '../components/game/ServerStarter'
 import PlayerData from '../components/player/PlayerData'
+import PlayerAction from '../components/player/PlayerAction'
 
 Vue.use(Router)
 Vue.use(ElementUI)
@@ -85,7 +86,8 @@ const router = new Router({
         {path: '/resource' , component: Resource},
         {path: '/low/performance' , component: LowPerformance},
         {path: '/game/starter', component: ServerStarter},
-        {path: '/player/data', component: PlayerData}
+        {path: '/player/data', component: PlayerData},
+        {path: '/player/action' , component: PlayerAction}
       ]
     }
   ]

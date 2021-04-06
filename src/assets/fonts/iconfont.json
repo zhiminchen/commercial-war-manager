@@ -6,6 +6,13 @@
   "description": "图标库",
   "glyphs": [
     {
+      "icon_id": "12747777",
+      "name": "行为",
+      "font_class": "hangwei",
+      "unicode": "e63a",
+      "unicode_decimal": 58938
+    },
+    {
       "icon_id": "10666896",
       "name": "运维",
       "font_class": "yunwei",

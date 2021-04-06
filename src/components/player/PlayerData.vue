@@ -130,7 +130,7 @@
 
     created () {
       this.queryPlayerId =this.$story.queryPlayerId
-      if(!this.queryPlayerId){
+      if(this.queryPlayerId){
         this.queryPlayerData()
       }
     },
