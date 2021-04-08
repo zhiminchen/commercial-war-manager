@@ -36,6 +36,8 @@ import LowPerformance from '../components/game/LowPerformance'
 import ServerStarter from '../components/game/ServerStarter'
 import PlayerData from '../components/player/PlayerData'
 import PlayerAction from '../components/player/PlayerAction'
+import DailyTaskBox from '../components/gamedata/DailyTaskBox'
+import GameRank from '../components/gamedata/GameRank'
 
 Vue.use(Router)
 Vue.use(ElementUI)
@@ -87,7 +89,9 @@ const router = new Router({
         {path: '/low/performance' , component: LowPerformance},
         {path: '/game/starter', component: ServerStarter},
         {path: '/player/data', component: PlayerData},
-        {path: '/player/action' , component: PlayerAction}
+        {path: '/player/action' , component: PlayerAction},
+        {path: '/daily/task' , component: DailyTaskBox},
+        {path: '/game/rank' , component: GameRank}
       ]
     }
   ]

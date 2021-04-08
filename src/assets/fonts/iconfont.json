@@ -6,6 +6,20 @@
   "description": "图标库",
   "glyphs": [
     {
+      "icon_id": "1636528",
+      "name": "工单_排行榜",
+      "font_class": "paihangbang",
+      "unicode": "e63e",
+      "unicode_decimal": 58942
+    },
+    {
+      "icon_id": "12689806",
+      "name": "排行榜",
+      "font_class": "paihangbang1",
+      "unicode": "e63f",
+      "unicode_decimal": 58943
+    },
+    {
       "icon_id": "12747777",
       "name": "行为",
       "font_class": "hangwei",
