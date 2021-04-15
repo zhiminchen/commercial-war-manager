@@ -38,6 +38,10 @@ import PlayerData from '../components/player/PlayerData'
 import PlayerAction from '../components/player/PlayerAction'
 import DailyTaskBox from '../components/gamedata/DailyTaskBox'
 import GameRank from '../components/gamedata/GameRank'
+import IdentityLevel from '../components/gamedata/IdentityLevel'
+import MainTask from '../components/gamedata/MainTask'
+import AroundWorldLevel from '../components/gamedata/AroundWorldLevel'
+import AroundWorldTimes from '../components/gamedata/AroundWorldTimes'
 
 Vue.use(Router)
 Vue.use(ElementUI)
@@ -91,7 +95,11 @@ const router = new Router({
         {path: '/player/data', component: PlayerData},
         {path: '/player/action' , component: PlayerAction},
         {path: '/daily/task' , component: DailyTaskBox},
-        {path: '/game/rank' , component: GameRank}
+        {path: '/game/rank' , component: GameRank},
+        {path: '/game/identity/level' , component: IdentityLevel},
+        {path: '/game/main/task' , component: MainTask},
+        {path: '/game/around/world/level', component: AroundWorldLevel},
+        {path: '/game/around/world/times', component: AroundWorldTimes}
       ]
     }
   ]

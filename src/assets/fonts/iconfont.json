@@ -6,6 +6,48 @@
   "description": "图标库",
   "glyphs": [
     {
+      "icon_id": "6590368",
+      "name": "世界",
+      "font_class": "TimeStyleCopy",
+      "unicode": "e6e0",
+      "unicode_decimal": 59104
+    },
+    {
+      "icon_id": "7410223",
+      "name": "世界",
+      "font_class": "shijie",
+      "unicode": "e641",
+      "unicode_decimal": 58945
+    },
+    {
+      "icon_id": "17434798",
+      "name": "世界",
+      "font_class": "shijie1",
+      "unicode": "e643",
+      "unicode_decimal": 58947
+    },
+    {
+      "icon_id": "18940154",
+      "name": "虚拟环游",
+      "font_class": "xunihuanyou",
+      "unicode": "e648",
+      "unicode_decimal": 58952
+    },
+    {
+      "icon_id": "19561874",
+      "name": "世界",
+      "font_class": "shijie2",
+      "unicode": "e85d",
+      "unicode_decimal": 59485
+    },
+    {
+      "icon_id": "20037832",
+      "name": "世界",
+      "font_class": "shijie3",
+      "unicode": "e67d",
+      "unicode_decimal": 59005
+    },
+    {
       "icon_id": "1636528",
       "name": "工单_排行榜",
       "font_class": "paihangbang",
