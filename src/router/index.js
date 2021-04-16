@@ -44,6 +44,9 @@ import AroundWorldLevel from '../components/gamedata/AroundWorldLevel'
 import AroundWorldTimes from '../components/gamedata/AroundWorldTimes'
 import Investment from '../components/gamedata/Investment'
 import TradeWarLevel from '../components/gamedata/TradeWarLevel'
+import TradeWorldTimes from '../components/gamedata/TradeWorldTimes'
+import SuperTech from '../components/gamedata/SuperTech'
+import SuperFactory from '../components/gamedata/SuperFactory'
 
 Vue.use(Router)
 Vue.use(ElementUI)
@@ -103,7 +106,10 @@ const router = new Router({
         {path: '/game/around/world/level', component: AroundWorldLevel},
         {path: '/game/around/world/times', component: AroundWorldTimes},
         {path: '/game/investment', component:  Investment},
-        {path: '/game/trade/war/level', component:  TradeWarLevel}
+        {path: '/game/trade/war/level', component:  TradeWarLevel},
+        {path: '/game/trade/war/times', component: TradeWorldTimes},
+        {path: '/game/super/tech', component: SuperTech},
+        {path: '/game/super/factory' , component: SuperFactory}
       ]
     }
   ]
