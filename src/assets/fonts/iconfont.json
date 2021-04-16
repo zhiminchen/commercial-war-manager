@@ -6,6 +6,34 @@
   "description": "图标库",
   "glyphs": [
     {
+      "icon_id": "2018216",
+      "name": "投资",
+      "font_class": "touzi",
+      "unicode": "e649",
+      "unicode_decimal": 58953
+    },
+    {
+      "icon_id": "9559045",
+      "name": "投资",
+      "font_class": "ziyuan1",
+      "unicode": "e64a",
+      "unicode_decimal": 58954
+    },
+    {
+      "icon_id": "11537710",
+      "name": "投资",
+      "font_class": "touzi1",
+      "unicode": "e64b",
+      "unicode_decimal": 58955
+    },
+    {
+      "icon_id": "14128948",
+      "name": "投资",
+      "font_class": "P2P_Invest_for_Local_Stock_0",
+      "unicode": "e64c",
+      "unicode_decimal": 58956
+    },
+    {
       "icon_id": "6590368",
       "name": "世界",
       "font_class": "TimeStyleCopy",

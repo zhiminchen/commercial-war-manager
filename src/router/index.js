@@ -42,6 +42,8 @@ import IdentityLevel from '../components/gamedata/IdentityLevel'
 import MainTask from '../components/gamedata/MainTask'
 import AroundWorldLevel from '../components/gamedata/AroundWorldLevel'
 import AroundWorldTimes from '../components/gamedata/AroundWorldTimes'
+import Investment from '../components/gamedata/Investment'
+import TradeWarLevel from '../components/gamedata/TradeWarLevel'
 
 Vue.use(Router)
 Vue.use(ElementUI)
@@ -99,7 +101,9 @@ const router = new Router({
         {path: '/game/identity/level' , component: IdentityLevel},
         {path: '/game/main/task' , component: MainTask},
         {path: '/game/around/world/level', component: AroundWorldLevel},
-        {path: '/game/around/world/times', component: AroundWorldTimes}
+        {path: '/game/around/world/times', component: AroundWorldTimes},
+        {path: '/game/investment', component:  Investment},
+        {path: '/game/trade/war/level', component:  TradeWarLevel}
       ]
     }
   ]
