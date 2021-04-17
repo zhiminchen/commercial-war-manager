@@ -49,6 +49,7 @@ import SuperTech from '../components/gamedata/SuperTech'
 import SuperFactory from '../components/gamedata/SuperFactory'
 import TalentLevelDistribution from '../components/gamedata/TalentLevelDistribution'
 import TalentList from '../components/gamedata/TalentList'
+import PlayerResource from '../components/player/PlayerResource'
 
 Vue.use(Router)
 Vue.use(ElementUI)
@@ -101,6 +102,7 @@ const router = new Router({
         {path: '/game/starter', component: ServerStarter},
         {path: '/player/data', component: PlayerData},
         {path: '/player/action' , component: PlayerAction},
+        {path: '/player/resource', component: PlayerResource},
         {path: '/daily/task' , component: DailyTaskBox},
         {path: '/game/rank' , component: GameRank},
         {path: '/game/identity/level' , component: IdentityLevel},
@@ -113,7 +115,7 @@ const router = new Router({
         {path: '/game/super/tech', component: SuperTech},
         {path: '/game/super/factory' , component: SuperFactory},
         {path: '/game/talent/level', component: TalentLevelDistribution},
-        {path: '/game/talent/list' , component: TalentList}
+        {path: '/game/talent/list' , component: TalentList},
       ]
     }
   ]
