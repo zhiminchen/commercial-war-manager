@@ -6,6 +6,41 @@
   "description": "图标库",
   "glyphs": [
     {
+      "icon_id": "4174190",
+      "name": "人才",
+      "font_class": "rencai",
+      "unicode": "e65e",
+      "unicode_decimal": 58974
+    },
+    {
+      "icon_id": "6702290",
+      "name": "人才",
+      "font_class": "ziyuan2",
+      "unicode": "e6e7",
+      "unicode_decimal": 59111
+    },
+    {
+      "icon_id": "9042246",
+      "name": "人才",
+      "font_class": "rencai1",
+      "unicode": "e676",
+      "unicode_decimal": 58998
+    },
+    {
+      "icon_id": "10857937",
+      "name": "人才",
+      "font_class": "rencai2",
+      "unicode": "e65f",
+      "unicode_decimal": 58975
+    },
+    {
+      "icon_id": "13538803",
+      "name": "人才",
+      "font_class": "rencai3",
+      "unicode": "e675",
+      "unicode_decimal": 58997
+    },
+    {
       "icon_id": "3706310",
       "name": "生产",
       "font_class": "shengchan",

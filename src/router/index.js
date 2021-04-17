@@ -47,6 +47,8 @@ import TradeWarLevel from '../components/gamedata/TradeWarLevel'
 import TradeWorldTimes from '../components/gamedata/TradeWorldTimes'
 import SuperTech from '../components/gamedata/SuperTech'
 import SuperFactory from '../components/gamedata/SuperFactory'
+import TalentLevelDistribution from '../components/gamedata/TalentLevelDistribution'
+import TalentList from '../components/gamedata/TalentList'
 
 Vue.use(Router)
 Vue.use(ElementUI)
@@ -109,7 +111,9 @@ const router = new Router({
         {path: '/game/trade/war/level', component:  TradeWarLevel},
         {path: '/game/trade/war/times', component: TradeWorldTimes},
         {path: '/game/super/tech', component: SuperTech},
-        {path: '/game/super/factory' , component: SuperFactory}
+        {path: '/game/super/factory' , component: SuperFactory},
+        {path: '/game/talent/level', component: TalentLevelDistribution},
+        {path: '/game/talent/list' , component: TalentList}
       ]
     }
   ]
