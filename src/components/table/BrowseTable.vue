@@ -56,7 +56,7 @@
     created () {
       this.dbName = this.$story.configDBName
       this.total = this.$story.tableRowList.length
-      console.log(this.total)
+      // console.log(this.total)
     },
 
     methods : {

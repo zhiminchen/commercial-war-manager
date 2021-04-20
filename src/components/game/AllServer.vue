@@ -107,6 +107,21 @@
       </div>
 
 
+
+      <div class="row-component">
+        <el-row style="margin-bottom: 20px">
+          <el-tag>调用游戏服务器对外接口区域 : </el-tag>
+        </el-row>
+
+        <el-row>
+          <el-button type="primary" icon="el-icon-link" plain @click="callGameInterface">调用接口</el-button>
+        </el-row>
+
+
+      </div>
+
+
+
     </el-card>
 
   </div>
@@ -252,6 +267,44 @@
 
 
       },
+
+      // 调用游戏接口
+      async callGameInterface(){
+        const confirmResult = await this.$confirm.confirm('此操作将会调用游戏接口执行代码', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).catch(err => err);
+
+        if(confirmResult !== 'confirm'){
+          return this.$message.info('取消了调用游戏接口！');
+        }
+
+        if (this.checkedServers.length === 0) {
+          return this.$message.error('至少要选择一个游戏服务器!')
+        }
+
+        let param = {
+          servers : this.checkedServers.join(","),
+        }
+
+        const {data: res} = await this.$http.post('/gm/game/call/server', param)
+        if( res.meta.status != 200){
+          return this.$message.error("调用服务器接口失败!")
+        }
+
+        this.$message({
+          dangerouslyUseHTMLString: true,
+          showClose: true ,
+          duration: 10 * 1000 ,
+          type: 'success',
+          message: res.data
+        })
+
+
+
+      },
+
 
 
       // 重新加载组件数据
