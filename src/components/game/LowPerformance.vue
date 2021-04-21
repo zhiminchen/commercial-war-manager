@@ -30,7 +30,10 @@
         <el-table-column prop="runBody" label="api" align="center"></el-table-column>
         <el-table-column prop="sumTime" label="总时间" align="center"></el-table-column>
         <el-table-column prop="avgTime" label="平均时间" align="center"></el-table-column>
+        <el-table-column prop="maxTime" label="最大执行时间" align="center"></el-table-column>
+        <el-table-column prop="minTime" label="最小执行时间" align="center"></el-table-column>
         <el-table-column prop="count" label="出现次数" align="center"></el-table-column>
+
       </el-table>
 
     </el-card>

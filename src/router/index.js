@@ -50,6 +50,7 @@ import SuperFactory from '../components/gamedata/SuperFactory'
 import TalentLevelDistribution from '../components/gamedata/TalentLevelDistribution'
 import TalentList from '../components/gamedata/TalentList'
 import PlayerResource from '../components/player/PlayerResource'
+import DataBaseDiff from '../components/game/DataBaseDiff'
 
 Vue.use(Router)
 Vue.use(ElementUI)
@@ -103,6 +104,7 @@ const router = new Router({
         {path: '/player/data', component: PlayerData},
         {path: '/player/action' , component: PlayerAction},
         {path: '/player/resource', component: PlayerResource},
+        {path: '/player/db/diff' , component: DataBaseDiff},
         {path: '/daily/task' , component: DailyTaskBox},
         {path: '/game/rank' , component: GameRank},
         {path: '/game/identity/level' , component: IdentityLevel},
