@@ -134,7 +134,6 @@
           return this.$message.error('获取范围配置数据失败！')
         }
         this.rangeTypeConfigList = res.data
-        console.log(this.rangeTypeConfigList)
       },
 
       // 查询数据

@@ -51,6 +51,7 @@ import TalentLevelDistribution from '../components/gamedata/TalentLevelDistribut
 import TalentList from '../components/gamedata/TalentList'
 import PlayerResource from '../components/player/PlayerResource'
 import DataBaseDiff from '../components/game/DataBaseDiff'
+import PlayerSealTalk from '../components/player/PlayerSealTalk'
 
 Vue.use(Router)
 Vue.use(ElementUI)
@@ -105,6 +106,7 @@ const router = new Router({
         {path: '/player/action' , component: PlayerAction},
         {path: '/player/resource', component: PlayerResource},
         {path: '/player/db/diff' , component: DataBaseDiff},
+        {path: '/player/seal/talk' , component: PlayerSealTalk},
         {path: '/daily/task' , component: DailyTaskBox},
         {path: '/game/rank' , component: GameRank},
         {path: '/game/identity/level' , component: IdentityLevel},

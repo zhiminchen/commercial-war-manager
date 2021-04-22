@@ -52,7 +52,6 @@
         if(Array.prototype.isPrototypeOf(this.configDBList) && this.configDBList.length !== 0){
           this.configDBValue = this.configDBList[0].value
           this.configDBIndex = this.configDBList[0].key
-          // console.log(this.configDBIndex, '   ' , this.configDBValue)
         }
 
       },

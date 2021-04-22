@@ -225,7 +225,6 @@
         }
 
         this.mailList = res.data
-        console.log(this.mailList)
       },
 
       // 全选

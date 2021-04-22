@@ -176,16 +176,13 @@
       },
 
       handleRemove (file, fileList) {
-        console.log(file, fileList)
       },
       handlePreview (file) {
-        // console.log(file);
         var a = document.createElement('a')
         var event = new MouseEvent('click')
         a.download = file.name
         a.href = file.url
         a.dispatchEvent(event)
-        console.log(file)
       },
 
       async configList () {
@@ -198,7 +195,6 @@
         if (Array.prototype.isPrototypeOf(this.configDBList) && this.configDBList.length !== 0) {
           this.configDBValue = this.configDBList[0].value
           this.configDBIndex = this.configDBList[0].key
-          // console.log(this.configDBIndex, '   ' , this.configDBValue)
         }
 
       },
@@ -227,7 +223,6 @@
 
       // 预览表数据
       async previewTableData (tableName) {
-        // console.log(tableName)
         const {data: res} = await this.$http.get('/gm/preview/table', {
           params: {
             config_db_id: this.configDBIndex,
@@ -238,7 +233,6 @@
           return this.$message.error('获取具体表数据错误')
         }
 
-        // console.log(res.data)
         this.$story.configDBName = res.data.configDBName
         this.$story.configTableName = res.data.configTableName
         this.$story.tableTitle = res.data.tableTitle

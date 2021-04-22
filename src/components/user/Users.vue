@@ -234,14 +234,12 @@ export default {
 
     //
     handleSizeChange(newSize) {
-      // console.log(newSize)
       this.queryInfo.pageSize = newSize
       this.getUserList()
     },
 
     // 监听页码值改变值
     handleCurrentChange(newPage){
-      console.log(newPage)
       this.queryInfo.pageNum = newPage
       this.getUserList()
     },
@@ -250,7 +248,6 @@ export default {
     async userStateChanged(userInfo){
 
         const {data: res } = await this.$http.post(`/api/users/${userInfo.id}/state/${userInfo.mgState}`)
-        console.log(res)
         if(res.meta.status !== 200){
           userInfo.mgState = !userInfo.mgState ;
           return this.$message.error('更新用户状态失败!')
@@ -265,7 +262,6 @@ export default {
     // 点击按钮，添加用户
     addUser() {
       this.$refs.addFormRef.validate( async valid => {
-        // console.log(valid)
         if(!valid){
           return;
         }

@@ -267,14 +267,12 @@
 
       //
       handleSizeChange (newSize) {
-        // console.log(newSize)
         this.queryInfo.pageSize = newSize
         this.getUserList()
       },
 
       // 监听页码值改变值
       handleCurrentChange (newPage) {
-        console.log(newPage)
         this.queryInfo.pageNum = newPage
         this.getUserList()
       },
@@ -283,7 +281,6 @@
       async userStateChanged (userInfo) {
 
         const {data: res} = await this.$http.post(`/api/users/${userInfo.id}/state/${userInfo.mgState}`)
-        console.log(res)
         if (res.meta.status !== 200) {
           userInfo.mgState = !userInfo.mgState
           return this.$message.error('更新用户状态失败!')
@@ -304,7 +301,6 @@
           }
 
           this.addForm.password = this.$md5(this.addForm.password)
-          console.log(this.addForm)
           const {data: res} = await this.$http.post('/gm/user/add', this.addForm)
           if (res.meta.status !== 200) {
             this.$message.error('添加用户失败')

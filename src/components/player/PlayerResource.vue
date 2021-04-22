@@ -204,7 +204,6 @@
       this.currentPage=1
     },
     handleCurrentChange(val) {
-      // console.log(`当前页: ${val}`);
       this.currentPage=val
     }
     }

@@ -282,7 +282,6 @@
       // 点击按钮，添加角色
       addRole () {
         this.$refs.addFormRef.validate(async valid => {
-          // console.log(valid)
           if (!valid) {
             return
           }
