@@ -52,6 +52,8 @@ import TalentList from '../components/gamedata/TalentList'
 import PlayerResource from '../components/player/PlayerResource'
 import DataBaseDiff from '../components/game/DataBaseDiff'
 import PlayerSealTalk from '../components/player/PlayerSealTalk'
+import PlayerType from '../components/gamedata/PlayerType'
+import HotHandler from '../components/game/HotHandler'
 
 Vue.use(Router)
 Vue.use(ElementUI)
@@ -101,6 +103,7 @@ const router = new Router({
         {path: '/login/list' , component: LoginServer},
         {path: '/resource' , component: Resource},
         {path: '/low/performance' , component: LowPerformance},
+        {path: '/interface/detail' , component: HotHandler},
         {path: '/game/starter', component: ServerStarter},
         {path: '/player/data', component: PlayerData},
         {path: '/player/action' , component: PlayerAction},
@@ -120,6 +123,7 @@ const router = new Router({
         {path: '/game/super/factory' , component: SuperFactory},
         {path: '/game/talent/level', component: TalentLevelDistribution},
         {path: '/game/talent/list' , component: TalentList},
+        {path: '/game/player/type', component: PlayerType}
       ]
     }
   ]
