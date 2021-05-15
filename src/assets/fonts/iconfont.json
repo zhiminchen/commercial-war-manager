@@ -6,6 +6,34 @@
   "description": "图标库",
   "glyphs": [
     {
+      "icon_id": "1176380",
+      "name": "活动",
+      "font_class": "10huodong",
+      "unicode": "e668",
+      "unicode_decimal": 58984
+    },
+    {
+      "icon_id": "2227562",
+      "name": "活动",
+      "font_class": "event",
+      "unicode": "e669",
+      "unicode_decimal": 58985
+    },
+    {
+      "icon_id": "3634968",
+      "name": "活动",
+      "font_class": "huodong",
+      "unicode": "e66d",
+      "unicode_decimal": 58989
+    },
+    {
+      "icon_id": "16333905",
+      "name": "活动",
+      "font_class": "huodong1",
+      "unicode": "e66e",
+      "unicode_decimal": 58990
+    },
+    {
       "icon_id": "776804",
       "name": "热点",
       "font_class": "redian",
