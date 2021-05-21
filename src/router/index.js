@@ -55,6 +55,8 @@ import PlayerSealTalk from '../components/player/PlayerSealTalk'
 import PlayerType from '../components/gamedata/PlayerType'
 import HotHandler from '../components/game/HotHandler'
 import ActivityDayDistribution from '../components/player/ActivityDayDistribution'
+import Advertising from '../components/player/Advertising'
+import Marquee from '../components/player/Marquee'
 
 Vue.use(Router)
 Vue.use(ElementUI)
@@ -112,6 +114,8 @@ const router = new Router({
         {path: '/player/db/diff' , component: DataBaseDiff},
         {path: '/player/seal/talk' , component: PlayerSealTalk},
         {path: '/activity/day/distribution', component: ActivityDayDistribution},
+        {path: '/advertising', component: Advertising},
+        {path: '/marquee' ,component:Marquee },
         {path: '/daily/task' , component: DailyTaskBox},
         {path: '/game/rank' , component: GameRank},
         {path: '/game/identity/level' , component: IdentityLevel},

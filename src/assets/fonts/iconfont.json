@@ -6,6 +6,55 @@
   "description": "图标库",
   "glyphs": [
     {
+      "icon_id": "4149412",
+      "name": "跑马灯",
+      "font_class": "paomadeng",
+      "unicode": "e673",
+      "unicode_decimal": 58995
+    },
+    {
+      "icon_id": "9812416",
+      "name": "跑马灯",
+      "font_class": "tupainpaomadeng",
+      "unicode": "e678",
+      "unicode_decimal": 59000
+    },
+    {
+      "icon_id": "13032169",
+      "name": "跑马灯",
+      "font_class": "paomadeng1",
+      "unicode": "e679",
+      "unicode_decimal": 59001
+    },
+    {
+      "icon_id": "3757919",
+      "name": "公告",
+      "font_class": "gonggao",
+      "unicode": "e688",
+      "unicode_decimal": 59016
+    },
+    {
+      "icon_id": "4846145",
+      "name": "公告",
+      "font_class": "gaokaobei",
+      "unicode": "e670",
+      "unicode_decimal": 58992
+    },
+    {
+      "icon_id": "8372959",
+      "name": "公告",
+      "font_class": "gonggao1",
+      "unicode": "e741",
+      "unicode_decimal": 59201
+    },
+    {
+      "icon_id": "20242037",
+      "name": "公告",
+      "font_class": "gonggao2",
+      "unicode": "e671",
+      "unicode_decimal": 58993
+    },
+    {
       "icon_id": "1176380",
       "name": "活动",
       "font_class": "10huodong",
