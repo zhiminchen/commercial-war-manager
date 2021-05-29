@@ -57,6 +57,7 @@ import HotHandler from '../components/game/HotHandler'
 import ActivityDayDistribution from '../components/player/ActivityDayDistribution'
 import Advertising from '../components/player/Advertising'
 import Marquee from '../components/player/Marquee'
+import OpVIpData from '../components/datacount/OpVIpData'
 
 Vue.use(Router)
 Vue.use(ElementUI)
@@ -102,6 +103,7 @@ const router = new Router({
         {path: '/op/player/level', component: OpPlayerLevel},
         {path: '/op/novice/guide', component: OpNoviceGuide},
         {path: '/op/realtime', component: OpRealtime},
+        {path: '/op/vip', component: OpVIpData},
         {path: '/retained', component: Retained},
         {path: '/login/list' , component: LoginServer},
         {path: '/resource' , component: Resource},

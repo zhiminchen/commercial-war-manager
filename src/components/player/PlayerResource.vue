@@ -45,7 +45,7 @@
       </el-row>
 
       <el-row style="margin-top: 20px">
-        <el-table :data="dataList" stripe border>
+        <el-table :data="this.dataList.slice((currentPage-1)*pageSize,currentPage*pageSize)" stripe border>
           <el-table-column prop="playerName" label="玩家名称" align="center"></el-table-column>
           <el-table-column prop="time" label="时间" align="center"></el-table-column>
           <el-table-column prop="resourceName" label="物品名" align="center"></el-table-column>

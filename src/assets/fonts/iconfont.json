@@ -6,6 +6,34 @@
   "description": "图标库",
   "glyphs": [
     {
+      "icon_id": "9773297",
+      "name": "vip",
+      "font_class": "noun_Crown_",
+      "unicode": "e67a",
+      "unicode_decimal": 59002
+    },
+    {
+      "icon_id": "16729130",
+      "name": "vip",
+      "font_class": "vip",
+      "unicode": "e67b",
+      "unicode_decimal": 59003
+    },
+    {
+      "icon_id": "19291898",
+      "name": "vip",
+      "font_class": "vip1",
+      "unicode": "e862",
+      "unicode_decimal": 59490
+    },
+    {
+      "icon_id": "19650287",
+      "name": "VIP",
+      "font_class": "VIP",
+      "unicode": "ea81",
+      "unicode_decimal": 60033
+    },
+    {
       "icon_id": "4149412",
       "name": "跑马灯",
       "font_class": "paomadeng",
