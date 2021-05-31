@@ -6,6 +6,41 @@
   "description": "图标库",
   "glyphs": [
     {
+      "icon_id": "6700887",
+      "name": "订单",
+      "font_class": "order",
+      "unicode": "e67c",
+      "unicode_decimal": 59004
+    },
+    {
+      "icon_id": "10070493",
+      "name": "订单",
+      "font_class": "dd",
+      "unicode": "e67f",
+      "unicode_decimal": 59007
+    },
+    {
+      "icon_id": "11290767",
+      "name": "订单",
+      "font_class": "dd1",
+      "unicode": "e680",
+      "unicode_decimal": 59008
+    },
+    {
+      "icon_id": "12824858",
+      "name": "订单",
+      "font_class": "icon--copy",
+      "unicode": "e682",
+      "unicode_decimal": 59010
+    },
+    {
+      "icon_id": "13503580",
+      "name": "订单",
+      "font_class": "icon-",
+      "unicode": "e683",
+      "unicode_decimal": 59011
+    },
+    {
       "icon_id": "9773297",
       "name": "vip",
       "font_class": "noun_Crown_",

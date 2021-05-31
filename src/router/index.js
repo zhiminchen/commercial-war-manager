@@ -58,6 +58,7 @@ import ActivityDayDistribution from '../components/player/ActivityDayDistributio
 import Advertising from '../components/player/Advertising'
 import Marquee from '../components/player/Marquee'
 import OpVIpData from '../components/datacount/OpVIpData'
+import PlayerOrder from '../components/player/PlayerOrder'
 
 Vue.use(Router)
 Vue.use(ElementUI)
@@ -118,6 +119,7 @@ const router = new Router({
         {path: '/activity/day/distribution', component: ActivityDayDistribution},
         {path: '/advertising', component: Advertising},
         {path: '/marquee' ,component:Marquee },
+        {path: '/player/order',component: PlayerOrder},
         {path: '/daily/task' , component: DailyTaskBox},
         {path: '/game/rank' , component: GameRank},
         {path: '/game/identity/level' , component: IdentityLevel},
