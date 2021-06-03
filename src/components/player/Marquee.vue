@@ -91,7 +91,7 @@
         <el-row style="margin-top: 20px">
           <div>
             <h4>跑马灯循环次数 :</h4>
-            <el-input-number v-model="loopNum"  :min="1" :max="1000" label="跑马灯循环次数" ></el-input-number>
+            <el-input-number v-model="loopNum"  :min="1" :max="100000" label="跑马灯循环次数" ></el-input-number>
           </div>
         </el-row>
 
