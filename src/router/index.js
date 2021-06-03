@@ -59,6 +59,8 @@ import Advertising from '../components/player/Advertising'
 import Marquee from '../components/player/Marquee'
 import OpVIpData from '../components/datacount/OpVIpData'
 import PlayerOrder from '../components/player/PlayerOrder'
+import DailyOperation from '../components/datacount/DailyOperation'
+import OperationArea from '../components/datacount/OperationArea'
 
 Vue.use(Router)
 Vue.use(ElementUI)
@@ -94,6 +96,8 @@ const router = new Router({
         {path: '/customer', component: Customer},
         {path: '/dau', component: DAU},
         {path: '/add', component: ADD},
+        {path: '/daily/operation', component: DailyOperation},
+        {path: '/operation/area', component: OperationArea},
         {path: '/participation', component: PlayerParticipation},
         {path: '/range' , component: PlayerRange},
         {path: '/investment', component: InvestmentDetail},

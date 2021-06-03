@@ -42,7 +42,7 @@
 
                       <el-table-column prop="content" label="公告内容" align="center" >
                         <template slot-scope="scope">
-                          <div v-html="scope.row.content"></div>
+                          <div v-html="scope.row.cutContent"></div>
                         </template>
                       </el-table-column>
 
@@ -111,14 +111,15 @@
 
             <el-form-item label="公告权重">
               <!--            <el-input v-model="editForm.advertisingWeight"></el-input>-->
-              <el-input-number v-model="globalForm.advertisingWeight" :min="1" :max="1000" ></el-input-number>
+              <el-input-number v-model="globalForm.advertisingWeight" :min="1" :max="100000" ></el-input-number>
             </el-form-item>
 
             <el-form-item label="公告时间">
               <el-date-picker
                 v-model="globalForm.advertisingTime"
                 type="date"
-                placeholder="选择日期">
+                placeholder="选择日期"
+                value-format="yyyy-MM-dd">
               </el-date-picker>
             </el-form-item>
 
@@ -165,7 +166,8 @@
             <el-date-picker
               v-model="editForm.advertisingTime"
               type="date"
-              placeholder="选择日期">
+              placeholder="选择日期"
+              value-format="yyyy-MM-dd">
             </el-date-picker>
           </el-form-item>
 
@@ -280,9 +282,14 @@
           return this.$message.error('获取公告数据失败！')
         }
 
-
+        // content
 
         this.dataList = res.data
+        this.dataList.forEach(e => {
+          let content = e.content
+          let cutContent = content.length < 20 ? content : content.slice(0 , 20)
+          e.cutContent = cutContent
+        })
       },
 
       // 编辑条目

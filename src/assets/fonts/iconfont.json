@@ -6,6 +6,41 @@
   "description": "图标库",
   "glyphs": [
     {
+      "icon_id": "3186786",
+      "name": "运营",
+      "font_class": "yunying",
+      "unicode": "e685",
+      "unicode_decimal": 59013
+    },
+    {
+      "icon_id": "9189111",
+      "name": "运营",
+      "font_class": "yunying1",
+      "unicode": "e686",
+      "unicode_decimal": 59014
+    },
+    {
+      "icon_id": "10597117",
+      "name": "运营",
+      "font_class": "yunying2",
+      "unicode": "e687",
+      "unicode_decimal": 59015
+    },
+    {
+      "icon_id": "13451628",
+      "name": "运营",
+      "font_class": "yunying3",
+      "unicode": "e762",
+      "unicode_decimal": 59234
+    },
+    {
+      "icon_id": "14101419",
+      "name": "运营",
+      "font_class": "yunying4",
+      "unicode": "e728",
+      "unicode_decimal": 59176
+    },
+    {
       "icon_id": "6700887",
       "name": "订单",
       "font_class": "order",
