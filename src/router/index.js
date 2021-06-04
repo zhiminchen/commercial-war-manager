@@ -62,6 +62,7 @@ import PlayerOrder from '../components/player/PlayerOrder'
 import DailyOperation from '../components/datacount/DailyOperation'
 import OperationArea from '../components/datacount/OperationArea'
 import AreaState from '../components/player/AreaState'
+import OpenServerConfig from '../components/player/OpenServerConfig'
 
 Vue.use(Router)
 Vue.use(ElementUI)
@@ -126,6 +127,7 @@ const router = new Router({
         {path: '/marquee' ,component:Marquee },
         {path: '/player/order',component: PlayerOrder},
         {path: '/area/info', component: AreaState},
+        {path: '/open/server/config', component: OpenServerConfig},
         {path: '/daily/task' , component: DailyTaskBox},
         {path: '/game/rank' , component: GameRank},
         {path: '/game/identity/level' , component: IdentityLevel},
