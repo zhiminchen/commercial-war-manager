@@ -6,6 +6,41 @@
   "description": "图标库",
   "glyphs": [
     {
+      "icon_id": "10732786",
+      "name": "区域",
+      "font_class": "quyu",
+      "unicode": "e689",
+      "unicode_decimal": 59017
+    },
+    {
+      "icon_id": "10869496",
+      "name": "区  域",
+      "font_class": "quyu1",
+      "unicode": "e68a",
+      "unicode_decimal": 59018
+    },
+    {
+      "icon_id": "11071177",
+      "name": "区  域",
+      "font_class": "quyu2",
+      "unicode": "e68b",
+      "unicode_decimal": 59019
+    },
+    {
+      "icon_id": "12847671",
+      "name": "区  域",
+      "font_class": "quyu3",
+      "unicode": "e6ec",
+      "unicode_decimal": 59116
+    },
+    {
+      "icon_id": "14061991",
+      "name": "区  域",
+      "font_class": "quyu4",
+      "unicode": "e68c",
+      "unicode_decimal": 59020
+    },
+    {
       "icon_id": "3186786",
       "name": "运营",
       "font_class": "yunying",

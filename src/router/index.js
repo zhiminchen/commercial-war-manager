@@ -61,6 +61,7 @@ import OpVIpData from '../components/datacount/OpVIpData'
 import PlayerOrder from '../components/player/PlayerOrder'
 import DailyOperation from '../components/datacount/DailyOperation'
 import OperationArea from '../components/datacount/OperationArea'
+import AreaState from '../components/player/AreaState'
 
 Vue.use(Router)
 Vue.use(ElementUI)
@@ -124,6 +125,7 @@ const router = new Router({
         {path: '/advertising', component: Advertising},
         {path: '/marquee' ,component:Marquee },
         {path: '/player/order',component: PlayerOrder},
+        {path: '/area/info', component: AreaState},
         {path: '/daily/task' , component: DailyTaskBox},
         {path: '/game/rank' , component: GameRank},
         {path: '/game/identity/level' , component: IdentityLevel},
