@@ -63,6 +63,8 @@ import DailyOperation from '../components/datacount/DailyOperation'
 import OperationArea from '../components/datacount/OperationArea'
 import AreaState from '../components/player/AreaState'
 import OpenServerConfig from '../components/player/OpenServerConfig'
+import PlayerBatchMail from '../components/player/PlayerBatchMail'
+import RedemptionCode from '../components/player/RedemptionCode'
 
 Vue.use(Router)
 Vue.use(ElementUI)
@@ -128,6 +130,8 @@ const router = new Router({
         {path: '/player/order',component: PlayerOrder},
         {path: '/area/info', component: AreaState},
         {path: '/open/server/config', component: OpenServerConfig},
+        {path: '/player/batch/mail', component: PlayerBatchMail},
+        {path: '/redemption/code', component: RedemptionCode},
         {path: '/daily/task' , component: DailyTaskBox},
         {path: '/game/rank' , component: GameRank},
         {path: '/game/identity/level' , component: IdentityLevel},
