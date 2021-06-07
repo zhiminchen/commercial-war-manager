@@ -136,7 +136,9 @@
         jsonFields: {
           "编号": "id",    //常规字段
           "兑换码": "code", //支持嵌套属性
-          "类型":"repeat",
+          "名称": "name",
+          "重复类型":"repeat",
+          "类型": "type",
           "奖励":"rewards",
           // "完成率": "percentage",
           "开始时间":"startTime",
