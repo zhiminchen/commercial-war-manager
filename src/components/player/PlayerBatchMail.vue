@@ -79,7 +79,7 @@
 
           <el-input
             type="textarea"
-            :rows="10000"
+            :autosize="{minRow: 1 , maxRows:10}"
             placeholder="请输入玩家ID 一个玩家ID占据一列"
             v-model="textarea">
           </el-input>
@@ -135,7 +135,6 @@
         }
 
 
-
         let strList = []
         this.mailResourceList.forEach(x => {
           let item = x.name + " : " + x.num ;
@@ -143,8 +142,8 @@
         })
         // var s = '你好 {0} {1}'.formar('value1', 123)
         let content = " <strong> 邮件标题为 : _1 </strong> </br> <strong> 邮件内容为 : _2 </strong> </br> <strong> 邮件奖励为 : _3 </strong> </br>"
-        content = content.replace("_1" , this.awardForm.mailTitle);
-        content = content.replace("_2" , this.awardForm.mailContent);
+        content = content.replace("_1" , this.mailTitle);
+        content = content.replace("_2" , this.mailContent);
         content = content.replace("_3" , strList.join("\t"));
 
         const confirmResult = await this.$confirm.confirm(content, '提示', {
@@ -166,11 +165,12 @@
 
         let param = {
           playerIds: this.textarea,
-          mailTitle : this.awardForm.mailTitle,
-          mailContent: this.awardForm.mailContent,
+          mailTitle : this.mailTitle,
+          mailContent: this.mailContent,
           itemList: strList.join("|")
         }
 
+        console.log(param)
 
         const {data: res} = await this.$http.post('/gm/op/batch/mail', param)
 
