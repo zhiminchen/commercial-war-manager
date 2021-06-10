@@ -36,7 +36,7 @@
 
         </el-row>
 
-        <el-row style="margin-top: 20px">
+        <el-row style="margin-top: 20px; width: 500px">
           <el-input
             type="text"
             placeholder="请输入邮件标题"
@@ -48,7 +48,7 @@
           </el-input>
         </el-row>
 
-        <el-row style="margin-top: 20px">
+        <el-row style="margin-top: 20px; width: 500px">
           <el-input
             type="textarea"
             placeholder="请输入邮件正文"
@@ -75,14 +75,25 @@
         </el-row>
 
 
-        <el-row>
+        <el-row style="margin-top: 40px">
 
-          <el-input
-            type="textarea"
-            :autosize="{minRow: 1 , maxRows:10}"
-            placeholder="请输入玩家ID 一个玩家ID占据一列"
-            v-model="textarea">
-          </el-input>
+
+          <el-col :span="12">
+            <el-input
+              type="textarea"
+              :autosize="{minRow: 1 , maxRows:20}"
+              placeholder="请输入玩家ID 一个玩家ID占据一行,粘贴复制进去就行"
+              v-model="textarea" style="margin-top: 18px; width: 400px">
+            </el-input>
+          </el-col>
+
+          <el-col :span="12">
+            <el-table :data="dataList" style="width: 100%" stripe border>
+              <el-table-column prop="playerId" label="玩家ID" align="center"></el-table-column>
+              <el-table-column prop="success" label="是否成功" align="center" :formatter="formatBoolean"></el-table-column>
+            </el-table>
+          </el-col>
+
 
         </el-row>
 
@@ -107,6 +118,7 @@
         mailTitle: '',
         mailContent: '',
         textarea:'',
+        dataList : [],
       }
     },
 
@@ -115,6 +127,16 @@
     },
 
     methods : {
+
+      formatBoolean: function (row, column, cellValue) {
+        let ret = ''  //你想在页面展示的值
+        if (cellValue) {
+          ret = "是"  //根据自己的需求设定
+        } else {
+          ret = "否"
+        }
+        return ret;
+      },
 
       async sendAward() {
 
@@ -185,8 +207,11 @@
           showClose: true ,
           duration: 10 * 1000 ,
           type: 'success',
-          message:  res.data
+          message:  "批量邮件成功！"
         })
+
+        this.dataList = res.data
+        console.log(this.dataList)
 
       },
 

@@ -43,6 +43,16 @@
           <el-table-column prop="time" label="充值时间" align="center"></el-table-column>
           <el-table-column prop="stateName" label="订单状态" align="center"></el-table-column>
           <el-table-column prop="platformName" label="平台" align="center"></el-table-column>
+
+          <el-table-column label="操作" align="center">
+            <template slot-scope="scope">
+              <el-button size="mini" type="primary" icon="el-icon-edit" @click="replenishmentOrder(scope.row)">
+                补单
+              </el-button>
+            </template>
+          </el-table-column>
+
+
         </el-table>
       </el-row>
 
@@ -64,8 +74,28 @@
     },
 
     methods: {
+
+      async replenishmentOrder(record) {
+
+        if(record.state >= 4){
+          return this.$message.error("该订单为发货到账的订单， 所以不能补单！")
+        }
+
+        const {data: res} = await this.$http.post('/gm/player/replenishment/order', record);
+        // if (res.meta.status !== 200) {
+        //   return this.$message.error(res.meta.msg)
+        // }
+        return this.$message.info(res.meta.msg)
+        this.queryData();
+
+
+      },
+
+
       // 查询玩家行为数据
       async queryData () {
+
+
 
         if(!this.playerId && !this.orderId){
           return this.$message.error('玩家ID和订单号必须提供一项')
