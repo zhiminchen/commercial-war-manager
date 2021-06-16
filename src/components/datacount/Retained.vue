@@ -48,6 +48,19 @@
             <el-button icon="el-icon-search" type="primary" plain @click="queryData">查询</el-button>
           </el-col>
 
+
+          <el-col :span="4">
+            <download-excel
+              :fields="jsonFields"
+              :data="dataList.tableRowList"
+              type="xls"
+              :name="exportName"
+              worksheet="导出信息"
+            >
+              <el-button icon="el-icon-download" type="primary" plain >导出数据</el-button>
+            </download-excel>
+          </el-col>
+
         </el-row>
 
 
@@ -67,6 +80,22 @@
 
     data() {
       return {
+        exportName: '留存数据',
+        jsonFields: {
+          "编号": "id",    //常规字段
+          "兑换码": "code", //支持嵌套属性
+          "名称": "name",
+          "重复类型":"repeat",
+          "类型": "type",
+          "奖励":"rewards",
+          // "完成率": "percentage",
+          "开始时间":"startTime",
+          "结束时间":"endTime",
+          "渠道":"channels",
+          "服务器":"servers",
+          "vip等级":"vipLevel",
+        },
+
         dayRange : '',
         gameConfigList : [],
         channelConfigList : [],
@@ -157,6 +186,16 @@
         // console.log(this.dataList)
         if(this.dataList.length == 0){
           this.$message.warning("没有查询出数据！")
+        } else {
+          let title = this.dataList.tableTitle
+          // console.log(title)
+          let jsonObj = {}
+          let length = title.length
+          for(let i = 0 ;i < length; i++){
+            jsonObj[title[i]] = title[i]
+          }
+          this.jsonFields = jsonObj
+          // console.log(this.jsonFields)
         }
 
       }

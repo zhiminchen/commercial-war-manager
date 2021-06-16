@@ -51,37 +51,57 @@
             </el-date-picker>
           </el-col>
 
+
+
+        </el-row>
+
+        <el-row style="margin-top: 25px">
+
           <el-col :span="4" >
             <el-button icon="el-icon-search" type="primary" plain @click="queryData">查询</el-button>
           </el-col>
 
+          <el-col :span="4">
+            <download-excel
+              :fields="jsonFields"
+              :data="dataList"
+              type="xls"
+              :name="exportName"
+              worksheet="导出信息"
+            >
+              <el-button icon="el-icon-download" type="primary" plain >导出数据</el-button>
+            </download-excel>
+          </el-col>
+
+        </el-row>
+
+        <el-row style="margin-top: 25px">
+          <el-table :data="dataList" border stripe>
+            <el-table-column prop="day" label="日期"  align="center"></el-table-column>
+            <el-table-column prop="serverId" label="serverId"  align="center"></el-table-column>
+            <el-table-column prop="newAdd" label="注册数"  align="center"></el-table-column>
+            <el-table-column prop="effectiveNewAdd" label="有效注册用户数"  align="center"></el-table-column>
+            <el-table-column prop="dau" label="活跃用户数"  align="center"></el-table-column>
+
+            <el-table-column prop="payNum" label="充值人数"  align="center"></el-table-column>
+            <el-table-column prop="payTotal" label="充值金额"  align="center"></el-table-column>
+            <el-table-column prop="arPPU" label="arppu"  align="center"></el-table-column>
+            <el-table-column prop="dauPPU" label="活跃arpu值"  align="center"></el-table-column>
+            <el-table-column prop="payRate" label="付费率(%)"  align="center"></el-table-column>
+            <el-table-column prop="newAddPayNum" label="首次注册充值人数"  align="center"></el-table-column>
+            <el-table-column prop="newAddPayTotal" label="首次注册充值金额"  align="center"></el-table-column>
+            <el-table-column prop="newAddArPPU" label="首次注册充值arppu"  align="center"></el-table-column>
+            <el-table-column prop="firstPayNum" label="首次充值人数"  align="center"></el-table-column>
+            <el-table-column prop="firstPayTotal" label="首次充值金额"  align="center"></el-table-column>
+            <el-table-column prop="firstArPPU" label="首次充值arppu"  align="center"></el-table-column>
+
+            <el-table-column prop="firstPayRate" label="首次充值付费率(%)"  align="center"></el-table-column>
+            <el-table-column prop="avgPlayTime" label="平均在线时长(秒)"  align="center"></el-table-column>
+
+          </el-table>
         </el-row>
 
 
-
-        <el-table :data="dataList" border stripe>
-          <el-table-column prop="day" label="日期"  align="center"></el-table-column>
-          <el-table-column prop="serverId" label="serverId"  align="center"></el-table-column>
-          <el-table-column prop="newAdd" label="注册数"  align="center"></el-table-column>
-          <el-table-column prop="effectiveNewAdd" label="有效注册用户数"  align="center"></el-table-column>
-          <el-table-column prop="dau" label="活跃用户数"  align="center"></el-table-column>
-
-          <el-table-column prop="payNum" label="充值人数"  align="center"></el-table-column>
-          <el-table-column prop="payTotal" label="充值金额"  align="center"></el-table-column>
-          <el-table-column prop="arPPU" label="arppu"  align="center"></el-table-column>
-          <el-table-column prop="dauPPU" label="活跃arpu值"  align="center"></el-table-column>
-          <el-table-column prop="payRate" label="付费率(%)"  align="center"></el-table-column>
-          <el-table-column prop="newAddPayNum" label="首次注册充值人数"  align="center"></el-table-column>
-          <el-table-column prop="newAddPayTotal" label="首次注册充值金额"  align="center"></el-table-column>
-          <el-table-column prop="newAddArPPU" label="首次注册充值arppu"  align="center"></el-table-column>
-          <el-table-column prop="firstPayNum" label="首次充值人数"  align="center"></el-table-column>
-          <el-table-column prop="firstPayTotal" label="首次充值金额"  align="center"></el-table-column>
-          <el-table-column prop="firstArPPU" label="首次充值arppu"  align="center"></el-table-column>
-
-          <el-table-column prop="firstPayRate" label="首次充值付费率(%)"  align="center"></el-table-column>
-          <el-table-column prop="avgPlayTime" label="平均在线时长(秒)"  align="center"></el-table-column>
-
-        </el-table>
       </el-card>
 
     </div>
@@ -92,6 +112,27 @@
     name: 'OperationArea',
     data() {
       return {
+        exportName: '区服数据',
+        jsonFields: {
+          "日期"  :"day" ,
+          "serverId" : "serverId",
+          "注册数"  :"newAdd",
+          "有效注册用户数" : "effectiveNewAdd"  ,
+          "活跃用户数" :"dau"  ,
+          "充值人数" :"payNum" ,
+          "充值金额" :"payTotal"  ,
+          "arppu"  :"arPPU"  ,
+          "活跃arpu值"  :"dauPPU"  ,
+          "付费率(%)"  :"payRate"  ,
+          "首次注册充值人数" :"newAddPayNum"  ,
+          "首次注册充值金额" :"newAddPayTotal"  ,
+          "首次注册充值arppu"  :"newAddArPPU"  ,
+          "首次充值人数" :"firstPayNum"  ,
+          "首次充值金额" :"firstPayTotal"  ,
+          "首次充值arppu"  :"firstArPPU"  ,
+          "首次充值付费率(%)" : "firstPayRate"  ,
+          "平均在线时长(秒)"  :"avgPlayTime"
+        },
         dayRange : '',
         selectGameBegin: '',
         selectGameEnd: '',
