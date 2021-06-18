@@ -58,7 +58,7 @@
             <el-table-column prop="taskId" label="任务id" align="center"></el-table-column>
             <el-table-column prop="taskName" label="任务名称" align="center"></el-table-column>
             <el-table-column prop="count" label="人数" align="center"></el-table-column>
-
+            <el-table-column prop="totalCount" label="完成总人数" align="center"></el-table-column>
           </el-table>
         </el-row>
 
