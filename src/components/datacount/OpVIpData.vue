@@ -33,6 +33,21 @@
           <el-col :span="4" >
             <el-button icon="el-icon-search" type="primary" plain @click="queryData">查询</el-button>
           </el-col>
+
+
+          <el-col :span="4">
+            <download-excel
+              :fields="jsonFields"
+              :data="dataList"
+              type="xls"
+              :name="exportName"
+              worksheet="导出信息"
+            >
+              <el-button icon="el-icon-download" type="primary" plain >导出数据</el-button>
+            </download-excel>
+          </el-col>
+
+
         </el-row>
 
         <el-row style="margin-top: 25px">
@@ -45,6 +60,12 @@
             <el-table-column prop="vipLevel" label="vip等级"  align="center"></el-table-column>
             <el-table-column prop="vipExp" label="vip经验"  align="center"></el-table-column>
             <el-table-column prop="totalRecharge" label="总金额"  align="center"></el-table-column>
+
+            <el-table-column prop="power" label="战斗力"  align="center"></el-table-column>
+            <el-table-column prop="moneySpeed" label="赚钱速度"  align="center"></el-table-column>
+            <el-table-column prop="cumulateGainDiamond" label="历史钻石数"  align="center"></el-table-column>
+            <el-table-column prop="currDiamond" label="剩余钻石"  align="center"></el-table-column>
+
           </el-table>
 
 
@@ -79,6 +100,21 @@
         currentPage :  1 ,
         total: 1000,
         pageSize: 500,
+
+        exportName: 'vip数据',
+        jsonFields: {
+          "区服ID"  :"serverId" ,
+          "角色ID" : "playerId",
+          "昵称"  :"name",
+          "vip等级" : "vipLevel"  ,
+          "vip经验" :"vipExp"  ,
+          "总金额" :"totalRecharge" ,
+          "战斗力"  :"power"  ,
+          "赚钱速度"  :"moneySpeed"  ,
+          "历史钻石数"  :"cumulateGainDiamond"  ,
+          "剩余钻石" :"currDiamond"
+        },
+
       }
     },
 
