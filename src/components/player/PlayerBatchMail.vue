@@ -11,7 +11,7 @@
 
         <el-row>
           <el-col :span="5" style="margin-right: 10px">
-            <el-select v-model="selectResource" placeholder="请选择资源" clearable  >
+            <el-select v-model="selectResource" placeholder="请选择资源" clearable  filterable >
               <el-option
                 v-for="item in resourceList"
                 :key="item.id"
