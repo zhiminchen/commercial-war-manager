@@ -21,7 +21,36 @@
           </el-checkbox-group>
         </el-row>
 
-        <el-row style="margin-top: 20px">
+
+        <elr-row style="margin-top: 80px">
+          <h5>设置服务器状态：</h5>
+          <el-select v-model="state" placeholder="请选择">
+            <el-option
+              v-for="item in stateOptions"
+              :key="item.id"
+              :label="item.name"
+              :value="item.id">
+            </el-option>
+          </el-select>
+
+          <el-button size= "medium" type="danger"  @click="serverState" style="float:right;">操作服务器状态</el-button>
+
+        </elr-row>
+
+
+
+
+        <elr-row style="margin-top: 80px">
+          <h5>踢掉服务器在线玩家：</h5>
+          <el-button size= "medium" type="success"  @click="kickOff" >跳掉所有玩家</el-button>
+
+        </elr-row>
+
+
+
+
+
+        <el-row style="margin-top: 80px">
 
           <el-col :span="5">
             <el-select v-model="action" placeholder="请选择">
@@ -39,7 +68,7 @@
           </el-col>
 
 
-          <el-button size= "medium" type="danger"  @click="operation" style="float:right;">操作</el-button>
+          <el-button size= "medium" type="danger"  @click="operation" style="float:right;">操作服务器行为</el-button>
         </el-row>
 
 
@@ -62,6 +91,11 @@
         actionOptions:[
           {id: 1 , name : '重启'},{id:2 ,name: '更新'},{id: 3, name : '停服'}
         ],
+        state: '',
+        stateOptions: [
+          {id: 0 , name : '灰度'},{id:1 ,name: '正常'},{id: -1, name : '停止服务'}
+        ],
+
         pwd : '',
       }
     },
@@ -92,6 +126,125 @@
 
         this.serverOptions = res.data.map(e => e.value)
         // console.log(this.serverOptions)
+
+      },
+
+      // 服务器状态设置
+      async serverState() {
+
+        if(this.checkedServers.length <= 0){
+          return this.$message.error('请选择服务器！')
+
+        }
+
+        if(this.state  === ''){
+          return this.$message.error("服务器状态没有选择！")
+        }
+
+
+        let content = "<strong> 服务器列表为 : </strong> </br> _0 </br></br><strong> 服务器行为:&nbsp&nbsp&nbsp&nbsp _1 </strong> </br> "
+        let strList = []
+        this.checkedServers.forEach(e => {
+          let one = "<strong> 服务器 :&nbsp&nbsp&nbsp&nbsp   _0 </strong> ".replace("_0", e)
+          strList.push(one)
+        })
+
+        let actionName = '没有设置状态'
+        this.stateOptions.forEach(e => {
+          if(e.id == this.state){
+            actionName = e.name;
+          }
+        })
+
+
+        let xx =  strList.join('</br>')
+        content = content.replace("_0", xx)
+        content = content.replace("_1" , actionName)
+
+
+        const confirmResult = await this.$confirm.confirm(content, '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning',
+          dangerouslyUseHTMLString: true
+        }).catch(err => err)
+
+        if (confirmResult !== 'confirm') {
+          return this.$message.info('已经取消设置服务器状态')
+        }
+
+        let param = {
+          servers : this.checkedServers.join(","),
+          state : this.state
+        }
+        const {data : res} =  await this.$http.post("/gm/game/server/state", param)
+        // const {data: res} = await this.$http.post('/gm/game/server/action', param)
+
+        if (res.meta.status !== 200) {
+          return this.$message.error(res.meta.msg)
+        }
+
+        this.$message({
+          dangerouslyUseHTMLString: true,
+          showClose: true ,
+          duration: 10 * 1000 ,
+          type: 'success',
+          message: res.data
+        })
+      },
+
+      // 踢掉玩家
+      async kickOff(){
+
+        if(this.checkedServers.length <= 0){
+          return this.$message.error('请选择服务器！')
+
+        }
+
+
+        // let content = "<strong> 服务器列表为 : _0 </strong> </br> <strong> 服务器行为 : _1 </strong> </br> "
+        let content = "<strong> 服务器列表为 : </strong> </br> _0 </br></br><strong> 服务器行为:&nbsp&nbsp&nbsp&nbsp _1 </strong> </br> "
+
+        let strList = []
+        this.checkedServers.forEach(e => {
+          let one = "<strong> 服务器 :&nbsp&nbsp&nbsp&nbsp   _0 </strong> ".replace("_0", e)
+          strList.push(one)
+        })
+
+
+        let xx =  strList.join('</br>')
+        content = content.replace("_0", xx)
+        content = content.replace("_1" , "全服踢掉")
+
+
+        const confirmResult = await this.$confirm.confirm(content, '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning',
+          dangerouslyUseHTMLString: true
+        }).catch(err => err)
+
+        if (confirmResult !== 'confirm') {
+          return this.$message.info('已经取跳掉')
+        }
+
+        // let param = {
+        //   servers : this.checkedServers.join(","),
+        // }
+        const {data : res} =  await this.$http.post("/gm/game/kick/all", { servers : this.checkedServers.join(",")})
+        // const {data: res} = await this.$http.post('/gm/game/server/action', param)
+
+        if (res.meta.status !== 200) {
+          return this.$message.error(res.meta.msg)
+        }
+
+        this.$message({
+          dangerouslyUseHTMLString: true,
+          showClose: true ,
+          duration: 10 * 1000 ,
+          type: 'success',
+          message: res.data
+        })
 
       },
 
