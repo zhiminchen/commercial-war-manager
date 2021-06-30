@@ -9,7 +9,7 @@
 
     <el-card>
       <el-row>
-        <el-tag>全服服务器列表:</el-tag>
+        <h4>全服服务器列表:</h4>
       </el-row>
 
       <el-row>
@@ -22,7 +22,7 @@
 
       <div class="row-all-table">
           <el-row>
-            <el-tag>更新所有配置表区域 : </el-tag>
+            <h5>更新所有配置表区域 : </h5>
           </el-row>
           <el-row>
             <el-button style="margin-top: 20px;" type="primary" plain @click="updateAllConfigTable">
@@ -34,8 +34,8 @@
 
 
       <div class="row-one-table">
-        <el-row style="margin-bottom: 20px">
-          <el-tag>单独配置表更新区域 : </el-tag>
+        <el-row >
+          <h5>单独配置表更新区域 : </h5>
         </el-row>
 
         <el-row>
@@ -56,21 +56,21 @@
         </el-row>
       </div>
 
-      <div class="row-all-kick">
-        <el-row style="margin-bottom: 20px">
-          <el-tag>踢掉所有玩家区域 : </el-tag>
-        </el-row>
-        <el-row>
+<!--      <div class="row-all-kick">-->
+<!--        <el-row style="margin-bottom: 20px">-->
+<!--          <el-tag>踢掉所有玩家区域 : </el-tag>-->
+<!--        </el-row>-->
+<!--        <el-row>-->
 
-          <el-button solot="reference" type="primary" plain @click="kickAllPlayers">
-            一键剔除所有玩家
-          </el-button>
-        </el-row>
-      </div>
+<!--          <el-button solot="reference" type="primary" plain @click="kickAllPlayers">-->
+<!--            一键剔除所有玩家-->
+<!--          </el-button>-->
+<!--        </el-row>-->
+<!--      </div>-->
 
       <div class="row-component">
         <el-row style="margin-bottom: 20px">
-          <el-tag>从新加载组件数据区域 : </el-tag>
+          <h5>从新加载组件数据区域 :</h5>
         </el-row>
 
 
@@ -95,8 +95,8 @@
 
 
       <div class="row-component">
-        <el-row style="margin-bottom: 20px">
-          <el-tag>重新统计数据区域 : </el-tag>
+        <el-row style="margin-bottom: 10px">
+          <h5>重新统计数据区域 :</h5>
         </el-row>
 
         <el-row>
@@ -110,7 +110,7 @@
 
       <div class="row-component">
         <el-row style="margin-bottom: 20px">
-          <el-tag>调用游戏服务器对外接口区域 : </el-tag>
+          <h5>调用游戏服务器对外接口区域 : </h5>
         </el-row>
 
         <el-row>
