@@ -9,12 +9,12 @@
 
     <el-card>
       <el-row>
-        <el-col :span="6" style="margin-right: 20px">
+        <el-col :span="4" style="margin-right: 20px">
           <el-input placeholder="请输入长ID" suffix-icon="el-icon-search" v-model="queryPlayerId" autosize
                     clearable></el-input>
         </el-col>
 
-        <el-col :span="6">
+        <el-col :span="4">
           <el-select v-model="resourceId" placeholder="请选择物资"  clearable filterable>
             <el-option
               v-for="item in resourceList"
@@ -41,6 +41,20 @@
         <el-col :span="4">
           <el-button icon="el-icon-search" type="primary" @click="queryPlayerAction">查询</el-button>
         </el-col>
+
+
+        <el-col :span="4">
+          <download-excel
+            :fields="jsonFields"
+            :data="dataList"
+            type="xls"
+            :name="exportName"
+            worksheet="导出信息"
+          >
+            <el-button icon="el-icon-download" type="primary" plain >导出数据</el-button>
+          </download-excel>
+        </el-col>
+
 
       </el-row>
 
@@ -78,6 +92,17 @@
 
     data () {
       return {
+
+        exportName: '物资表更数据',
+        jsonFields: {
+          "玩家名称"  :"playerName" ,
+          "时间" : "time",
+          "物品名"  :"resourceName",
+          "变化" : "change"  ,
+          "变更后" :"after"  ,
+          "途径" :"way" ,
+        },
+
         queryPlayerId: '',
         dayRange: '',
         dataList: [],

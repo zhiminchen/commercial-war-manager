@@ -9,13 +9,13 @@
 
     <el-card>
       <el-row>
-        <el-col :span="8" style="margin-right: 20px">
+        <el-col :span="4" style="margin-right: 20px">
           <el-input placeholder="请输入长ID" suffix-icon="el-icon-search" v-model="queryPlayerId" autosize
                     clearable></el-input>
         </el-col>
 
 
-        <el-col :span="8">
+        <el-col :span="6">
           <el-date-picker
             v-model="dayRange"
             type="daterange"
@@ -30,6 +30,19 @@
 
         <el-col :span="4">
           <el-button icon="el-icon-search" type="primary" @click="queryPlayerAction">查询</el-button>
+        </el-col>
+
+
+        <el-col :span="4">
+          <download-excel
+            :fields="jsonFields"
+            :data="dataList"
+            type="xls"
+            :name="exportName"
+            worksheet="导出信息"
+          >
+            <el-button icon="el-icon-download" type="primary" plain >导出数据</el-button>
+          </download-excel>
         </el-col>
 
       </el-row>
@@ -67,6 +80,16 @@
 
     data () {
       return {
+
+        exportName: '玩家行为数据',
+        jsonFields: {
+          "玩家名称"  :"playerName" ,
+          "时间" : "time",
+          "行为类型"  :"funMouldName",
+          "请求参数" : "action"  ,
+          "行为结果" :"result"  ,
+        },
+
         queryPlayerId: '',
         dayRange: '',
         dataList: [],
