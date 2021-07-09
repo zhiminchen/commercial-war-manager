@@ -21,12 +21,12 @@
 
 
       <el-row style="margin-top: 20px">
-        <el-col :span="2">
+        <el-col :span="4">
           <el-tag type="success" effect="plain">
             基础信息 :
           </el-tag>
         </el-col>
-        <el-col :span="18">
+        <el-col :span="24">
           <el-table :data="playerData.kvList" stripe border>
             <el-table-column prop="key" label="字段" align="center"></el-table-column>
             <el-table-column prop="value" label="基础信息" align="center"></el-table-column>
@@ -36,12 +36,12 @@
 
 
       <el-row style="margin-top: 20px">
-        <el-col :span="2">
+        <el-col :span="4">
           <el-tag type="success" effect="plain">
             产业信息 :
           </el-tag>
         </el-col>
-        <el-col :span="18">
+        <el-col :span="24">
           <el-table :data="playerData.playerBuildingInfoList" stripe border>
             <el-table-column prop="shopName" label="店名" align="center"></el-table-column>
             <el-table-column prop="moneySpeed" label="赚钱速度" align="center"></el-table-column>
@@ -57,12 +57,12 @@
 
 
       <el-row style="margin-top: 20px">
-        <el-col :span="2">
+        <el-col :span="4">
           <el-tag type="success" effect="plain">
             人才信息 :
           </el-tag>
         </el-col>
-        <el-col :span="18">
+        <el-col :span="24">
           <el-table :data="playerData.playerTalentInfoList" stripe border>
             <el-table-column prop="name" label="人才名" align="center"></el-table-column>
             <el-table-column prop="state" label="状态" align="center"></el-table-column>
@@ -83,12 +83,12 @@
 
 
       <el-row style="margin-top: 20px">
-        <el-col :span="2">
+        <el-col :span="4">
           <el-tag type="success" effect="plain">
             环游世界 :
           </el-tag>
         </el-col>
-        <el-col :span="18">
+        <el-col :span="24">
           <el-table :data="playerData.playerAroundWorldInfoList" stripe border>
             <el-table-column prop="lineName" label="路线名" align="center"></el-table-column>
             <el-table-column prop="level" label="等级" align="center"></el-table-column>
@@ -102,6 +102,29 @@
           </el-table>
         </el-col>
       </el-row>
+
+
+      <el-row style="margin-top: 20px">
+        <el-col :span="4">
+          <el-tag type="success" effect="plain">
+            历史订单 :
+          </el-tag>
+        </el-col>
+        <el-col :span="24">
+          <el-table :data="playerData.rechargeOrderEntityList" stripe border>
+            <el-table-column prop="orderIdStr" label="游戏内订单号" align="center"></el-table-column>
+            <el-table-column prop="rechargeId" label="充值档位" align="center"></el-table-column>
+            <el-table-column prop="stateName" label="订单状态名称" align="center"></el-table-column>
+            <el-table-column prop="channelName" label="渠道名称" align="center"></el-table-column>
+            <el-table-column prop="platformName" label="平台名称" align="center"></el-table-column>
+            <el-table-column prop="paperPrice" label="账面金额" align="center"></el-table-column>
+            <el-table-column prop="actualPrice" label="实际金额" align="center"></el-table-column>
+            <el-table-column prop="orderCreateTime" label="订单创建时间" align="center"></el-table-column>
+
+          </el-table>
+        </el-col>
+      </el-row>
+
 
 
 
@@ -122,6 +145,7 @@
           playerBuildingInfoList : [] ,
           playerTalentInfoList : [],
           playerAroundWorldInfoList: [],
+          rechargeOrderEntityList: [],
 
         }
       }
@@ -172,6 +196,7 @@
         this.playerData.playerBuildingInfoList =  res.data.playerBuildingInfoList ;
         this.playerData.playerTalentInfoList =  res.data.playerTalentInfoList ;
         this.playerData.playerAroundWorldInfoList =  res.data.playerAroundWorldInfoList ;
+        this.playerData.rechargeOrderEntityList = res.data.rechargeOrderEntityList;
 
       }
     }

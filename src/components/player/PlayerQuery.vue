@@ -10,7 +10,7 @@
     <el-card>
       <el-row>
         <el-col :span="8" style="margin-right: 20px">
-          <el-input placeholder="请输入长ID或玩家名称" suffix-icon="el-icon-search" v-model="queryFiled" autosize
+          <el-input placeholder="请输入长ID 或 玩家名称 或 渠道ID" suffix-icon="el-icon-search" v-model="queryFiled" autosize
                     clearable></el-input>
         </el-col>
 
@@ -30,8 +30,27 @@
         </el-table-column>
 
 
-        <el-table-column v-for="item in tableTitle" :key="item" :prop="item" :label="item">
-        </el-table-column>
+<!--        <el-table-column v-for="item in tableTitle" :key="item" :prop="item" :label="item">-->
+<!--        </el-table-column>-->
+        <el-table-column prop="playerId" label="玩家ID" align="center"></el-table-column>
+        <el-table-column prop="userId" label="用户ID" align="center"></el-table-column>
+        <el-table-column prop="serverId" label="服务器ID" align="center"></el-table-column>
+        <el-table-column prop="name" label="玩家名称" align="center"></el-table-column>
+        <el-table-column prop="image" label="头像ID" align="center"></el-table-column>
+        <el-table-column prop="iconFrame" label="头框ID" align="center"></el-table-column>
+        <el-table-column prop="level" label="等级" align="center"></el-table-column>
+        <el-table-column prop="vipLevel" label="vip等级" align="center"></el-table-column>
+
+        <el-table-column prop="online" label="是否在线" align="center"></el-table-column>
+        <el-table-column prop="power" label="战力" align="center"></el-table-column>
+        <el-table-column prop="province" label="省份" align="center"></el-table-column>
+        <el-table-column prop="city" label="城市" align="center"></el-table-column>
+
+        <el-table-column prop="channel" label="渠道ID" align="center"></el-table-column>
+        <el-table-column prop="loginTime" label="登入时间" align="center"></el-table-column>
+        <el-table-column prop="createTime" label="创建时间" align="center"></el-table-column>
+
+
       </el-table>
 
       <el-row style="margin-top: 45px">
@@ -318,11 +337,11 @@
         }
 
         let param = {
-          playerId: this.multipleSelection.player_id,
-          serverId: this.multipleSelection.server_id,
+          playerId: this.multipleSelection.playerId,
+          serverId: this.multipleSelection.serverId,
         }
         // console.log(param)
-        this.$story.queryPlayerId = this.multipleSelection.player_id
+        this.$story.queryPlayerId = this.multipleSelection.playerId
         this.$router.push('/player/data')
 
         // const {data: res} = await this.$http.post('/gm/player/info', param);
@@ -378,8 +397,9 @@
           return this.$message.error(res.meta.msg)
         }
 
-        this.dataList = res.data.tableRowList
-        this.tableTitle = res.data.tableTitle
+        // this.dataList = res.data.tableRowList
+        // this.tableTitle = res.data.tableTitle
+        this.dataList = res.data
         // console.log(this.tableTitle)
 
       },
@@ -422,8 +442,8 @@
         }
 
         let param = {
-          playerId: this.multipleSelection.player_id,
-          serverId: this.multipleSelection.server_id,
+          playerId: this.multipleSelection.playerId,
+          serverId: this.multipleSelection.serverId,
           name: this.multipleSelection.name,
           beginTime: this.sealForm.dateTimeSelect[0],
           closeTime: this.sealForm.dateTimeSelect[1]
@@ -453,8 +473,8 @@
         }
 
         let param = {
-          playerId: this.multipleSelection.player_id,
-          serverId: this.multipleSelection.server_id,
+          playerId: this.multipleSelection.playerId,
+          serverId: this.multipleSelection.serverId,
           name: this.multipleSelection.name,
           beginTime: this.banTalkForm.dateTimeSelect[0],
           closeTime: this.banTalkForm.dateTimeSelect[1]
@@ -513,8 +533,8 @@
         })
 
         let param = {
-          playerId: this.multipleSelection.player_id,
-          serverId: this.multipleSelection.server_id,
+          playerId: this.multipleSelection.playerId,
+          serverId: this.multipleSelection.serverId,
           mailTitle : this.awardForm.mailTitle,
           mailContent: this.awardForm.mailContent,
           itemList: strList.join("|")
@@ -566,8 +586,8 @@
 
 
         let param = {
-          playerId: this.multipleSelection.player_id,
-          serverId: this.multipleSelection.server_id,
+          playerId: this.multipleSelection.playerId,
+          serverId: this.multipleSelection.serverId,
           name: this.multipleSelection.name,
           beginTime: '',
           closeTime: '' ,
