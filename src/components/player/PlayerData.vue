@@ -125,7 +125,25 @@
         </el-col>
       </el-row>
 
+      <el-row style="margin-top: 20px">
+        <el-col :span="4">
+          <el-tag type="success" effect="plain">
+            玩家邮件 :
+          </el-tag>
+        </el-col>
+        <el-col :span="24">
+          <el-table :data="playerData.playerMailList" stripe border>
+            <el-table-column prop="title" label="标题" align="center"></el-table-column>
+            <el-table-column prop="content" label="内容" align="center"></el-table-column>
+            <el-table-column prop="attachment" label="附件" align="center"></el-table-column>
+            <el-table-column prop="type" label="类型" align="center"></el-table-column>
+            <el-table-column prop="hide" label="标志" align="center"></el-table-column>
+            <el-table-column prop="createTime" label="创建时间" align="center"></el-table-column>
+            <el-table-column prop="endTime" label="结束时间" align="center"></el-table-column>
 
+          </el-table>
+        </el-col>
+      </el-row>
 
 
     </el-card>
@@ -146,6 +164,7 @@
           playerTalentInfoList : [],
           playerAroundWorldInfoList: [],
           rechargeOrderEntityList: [],
+          playerMailList: [],
 
         }
       }
@@ -197,6 +216,7 @@
         this.playerData.playerTalentInfoList =  res.data.playerTalentInfoList ;
         this.playerData.playerAroundWorldInfoList =  res.data.playerAroundWorldInfoList ;
         this.playerData.rechargeOrderEntityList = res.data.rechargeOrderEntityList;
+        this.playerData.playerMailList = res.data.playerMailList;
 
       }
     }
