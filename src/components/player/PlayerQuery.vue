@@ -514,7 +514,7 @@
           strList.push(item);
         })
         // var s = '你好 {0} {1}'.formar('value1', 123)
-        let content = "<strong> 邮件标题为 : _1 </strong> </br> <strong> 邮件内容为 : _2 </strong> </br> <strong> 邮件奖励为 : _3 </strong> </br>"
+        let content = "<strong> 邮件标题为 : _1 </strong> </br> <strong> 邮件内容为 : _2 </strong> </br> <strong> 邮件奖励为 : _3 </strong> </br> <strong> 邮件接受人数为 : 1个人 </strong> </br>"
         content = content.replace("_1" , this.awardForm.mailTitle);
         content = content.replace("_2" , this.awardForm.mailContent);
         content = content.replace("_3" , strList.join("\t"));

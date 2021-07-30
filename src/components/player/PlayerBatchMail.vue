@@ -168,10 +168,20 @@
           strList.push(item);
         })
         // var s = '你好 {0} {1}'.formar('value1', 123)
-        let content = " <strong> 邮件标题为 : _1 </strong> </br> <strong> 邮件内容为 : _2 </strong> </br> <strong> 邮件奖励为 : _3 </strong> </br>"
+        let lines = this.textarea.split(/[\s\n]/)
+        let num = lines.length
+        let numX = 0
+        for(let i = 0 ;i<num ; i++){
+          if(lines[i].trim().length != 0){
+            numX ++
+          }
+        }
+
+        let content = " <strong> 邮件标题为 : _1 </strong> </br> <strong> 邮件内容为 : _2 </strong> </br> <strong> 邮件奖励为 : _3 </strong> </br> <strong> 邮件接受人数为 : _4个人 </strong> </br> </br>"
         content = content.replace("_1" , this.mailTitle);
         content = content.replace("_2" , this.mailContent);
         content = content.replace("_3" , strList.join("\t"));
+        content = content.replace("_4" , numX+'');
 
         const confirmResult = await this.$confirm.confirm(content, '提示', {
           confirmButtonText: '确定',
