@@ -203,10 +203,14 @@
             <el-table :data="awardList" style="width: 100%" stripe border>
                 <el-table-column prop="id" label="资源id" align="center"></el-table-column>
                 <el-table-column prop="name" label="资源名称" align="center"></el-table-column>
-                <el-table-column prop="num" label="资源数量" align="center"></el-table-column>
+              <el-table-column prop="num" label="资源数量" align="center">
+                <template slot-scope="scope">
+                  <el-input-number v-model="scope.row.num" :min="1" :max="10000000000" size="small" controls-position="center" />
+                </template>
+              </el-table-column>
                 <el-table-column  label="操作" align="center">
                   <template slot-scope="scope">
-                    <el-button type="danger" icon="el-icon-delete" size="mini" @click="delItem(scope.row)">编辑</el-button>
+                    <el-button type="danger" icon="el-icon-delete" size="mini" @click="delItem(scope.row)">删除</el-button>
                   </template>
                 </el-table-column>
 
